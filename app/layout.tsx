@@ -15,12 +15,71 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bastienandredev.fr"),
-  title: "Bastien Andre | Développeur Web Freelance Next.js",
+
+  title: {
+    default: "Bastien Andre | Développeur Web Freelance Next.js",
+    template: "%s | Bastien Andre",
+  },
+
   description:
-    "Création de sites vitrines d'exception et applications web modernes sur-mesure à Uzès.",
+    "Développeur web freelance basé à Uzès, spécialisé React, Next.js et TypeScript. Création de sites vitrines, refontes et applications web sur-mesure pour entreprises et indépendants.",
+
+  keywords: [
+    "développeur web freelance",
+    "développeur Next.js",
+    "développeur React",
+    "développeur TypeScript",
+    "création site internet Uzès",
+    "création site internet Gard",
+    "développeur freelance Occitanie",
+    "refonte site web",
+  ],
+
+  authors: [{ name: "Bastien Andre", url: "https://bastienandredev.fr" }],
+  creator: "Bastien Andre",
+  publisher: "Bastien Andre",
+
   alternates: {
     canonical: "/",
   },
+
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    url: "https://bastienandredev.fr",
+    siteName: "Bastien Andre — Développeur Web Freelance",
+    title: "Bastien Andre | Développeur Web Freelance Next.js",
+    description:
+      "Création de sites vitrines, refontes et applications web sur-mesure avec React, Next.js et TypeScript. Basé à Uzès, intervient partout en France à distance.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Bastien Andre - Développeur Web Freelance Next.js",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Bastien Andre | Développeur Web Freelance Next.js",
+    description:
+      "Création de sites vitrines, refontes et applications web sur-mesure avec React, Next.js et TypeScript.",
+    images: ["/og-image.png"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
@@ -30,7 +89,14 @@ export const metadata: Metadata = {
       { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
+
   manifest: "/site.webmanifest",
+
+  // Vérification Google Search Console — récupère ton code sur
+  // search.google.com/search-console après avoir ajouté ta propriété
+  // verification: {
+  //   google: "ton-code-de-verification",
+  // },
 };
 
 export default function RootLayout({
