@@ -60,7 +60,7 @@ export default function Footer() {
             </a>
 
             <a
-              href="https://www.malt.fr/profile/..."
+              href="https://www.malt.fr/profile/bastienandre-dev"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visiter le profil Malt"

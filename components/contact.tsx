@@ -1,18 +1,19 @@
 "use client";
 
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
+import { useState } from "react"; // <-- AJOUTÉ
 
 const contacts = [
   {
     icon: Mail,
     title: "Email",
-    value: "contact@tonsite.fr",
-    href: "mailto:contact@tonsite.fr",
+    value: "contact@bastienandredev.fr", // Mettre à jour ton mail
+    href: "mailto:contact@bastienandredev.fr",
   },
   {
     icon: Phone,
     title: "Téléphone",
-    value: "06 00 00 00 00",
+    value: "06 00 00 00 00", // À modifier
     href: "tel:+33600000000",
   },
   {
@@ -23,8 +24,55 @@ const contacts = [
 ];
 
 export default function Contact() {
-  const handleSubmit = (e: React.FormEvent) => {
+  // GESTION DES ÉTATS (AJOUTÉE)
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setStatus({ type: null, message: "" });
+
+    const formData = new FormData(e.currentTarget);
+    const payload = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      subject: formData.get("subject"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const response = await fetch("/api/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (response.ok) {
+        setStatus({
+          type: "success",
+          message:
+            "Votre message a bien été envoyé ! Je vous réponds au plus vite.",
+        });
+        (e.target as HTMLFormElement).reset(); // Vide le formulaire
+      } else {
+        setStatus({
+          type: "error",
+          message:
+            "Une erreur est survenue. Merci de réessayer ou de m'écrire directement.",
+        });
+      }
+    } catch {
+      setStatus({
+        type: "error",
+        message: "Erreur de connexion. Veuillez vérifier votre réseau.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -59,6 +107,7 @@ export default function Contact() {
                   <input
                     type="text"
                     id="name"
+                    name="name" // AJOUTÉ POUR LE FORMDATA
                     required
                     placeholder="Alexandre Rossi"
                     className="w-full bg-[#FAFBF9] rounded-xl border border-[#E4E6E0] px-4 py-3 text-sm text-[#14171C] placeholder-[#5B6168]/40 focus:outline-none focus:border-[#2F6B4F]/60 focus:ring-1 focus:ring-[#2F6B4F]/60 transition-all font-light"
@@ -74,6 +123,7 @@ export default function Contact() {
                   <input
                     type="email"
                     id="email"
+                    name="email" // AJOUTÉ POUR LE FORMDATA
                     required
                     placeholder="alex@exemple.com"
                     className="w-full bg-[#FAFBF9] rounded-xl border border-[#E4E6E0] px-4 py-3 text-sm text-[#14171C] placeholder-[#5B6168]/40 focus:outline-none focus:border-[#2F6B4F]/60 focus:ring-1 focus:ring-[#2F6B4F]/60 transition-all font-light"
@@ -91,6 +141,7 @@ export default function Contact() {
                 <input
                   type="text"
                   id="subject"
+                  name="subject" // AJOUTÉ POUR LE FORMDATA
                   required
                   placeholder="Refonte de notre site e-commerce..."
                   className="w-full bg-[#FAFBF9] rounded-xl border border-[#E4E6E0] px-4 py-3 text-sm text-[#14171C] placeholder-[#5B6168]/40 focus:outline-none focus:border-[#2F6B4F]/60 focus:ring-1 focus:ring-[#2F6B4F]/60 transition-all font-light"
@@ -106,6 +157,7 @@ export default function Contact() {
                 </label>
                 <textarea
                   id="message"
+                  name="message" // AJOUTÉ POUR LE FORMDATA
                   required
                   rows={5}
                   placeholder="Décrivez ici vos besoins, vos objectifs et vos délais estimés..."
@@ -113,12 +165,22 @@ export default function Contact() {
                 />
               </div>
 
+              {/* RETOUR VISUEL SUR L'ENVOI (AJOUTÉ) */}
+              {status.type && (
+                <div
+                  className={`p-4 rounded-xl text-sm border ${status.type === "success" ? "bg-[#EAF1EC] text-[#2F6B4F] border-[#2F6B4F]/20" : "bg-red-50 text-red-700 border-red-200"}`}
+                >
+                  {status.message}
+                </div>
+              )}
+
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-xl bg-[#14171C] px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-white hover:bg-[#2F6B4F] transition-all duration-300 shadow-sm group"
+                  disabled={isSubmitting} // DESACTIVÉ PENDANT L'ENVOI
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-xl bg-[#14171C] px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-white hover:bg-[#2F6B4F] transition-all duration-300 shadow-sm group disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Envoyer le message
+                  {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
                   <ArrowRight
                     size={14}
                     className="transform group-hover:translate-x-1 transition-transform"
