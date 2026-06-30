@@ -50,7 +50,7 @@ export default function TechStack() {
   return (
     <section
       id="technologies"
-      className="bg-[#FAFBF9] text-[#14171C] relative overflow-hidden py-24 md:py-32 border-t border-[#E4E6E0]/60"
+      className="bg-[#F4F5F1] text-[#14171C] relative overflow-hidden py-24 md:py-32"
     >
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-16 items-start">

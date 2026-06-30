@@ -27,7 +27,7 @@ export default function Process() {
   return (
     <section
       id="process"
-      className="bg-[#F4F5F1] text-[#14171C] relative overflow-hidden py-24 md:py-32 border-t border-[#E4E6E0]/60"
+      className="bg-[#FAFBF9] text-[#14171C] relative overflow-hidden py-24 md:py-32"
     >
       <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
         <div className="absolute top-[-10%] left-[-10%] w-[45vw] h-[45vw] rounded-full bg-[#E3E8E1] blur-[120px]" />

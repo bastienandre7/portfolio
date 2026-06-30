@@ -11,6 +11,7 @@ import { HiMenuAlt3, HiX } from "react-icons/hi";
 const navigation = [
   { label: "Services", href: "#services" },
   { label: "À propos", href: "#about" },
+  { label: "Parcours", href: "#parcours" },
   { label: "Projets", href: "#projets" },
   { label: "Process", href: "#process" },
   { label: "Technologies", href: "#technologies" },
@@ -34,7 +35,7 @@ export default function Hero() {
         />
       </div>
 
-      <header className="relative z-50 w-full border-b border-[#E4E6E0]/60 bg-[#F4F5F1]/60 backdrop-blur-md">
+      <header className="relative z-50 w-full backdrop-blur-xs">
         <div className="mx-auto max-w-6xl h-24 px-6 flex items-center justify-between">
           <a
             href="#"
@@ -44,7 +45,7 @@ export default function Hero() {
             Bastien Andre
           </a>
 
-          <nav className="hidden md:flex items-center gap-10 text-[13px] uppercase tracking-wider font-medium text-[#5B6168]">
+          <nav className="hidden lg:flex items-center gap-6 text-[13px]  tracking-wider font-medium text-[#5B6168]">
             {navigation.map((item) => (
               <a
                 key={item.label}
@@ -54,18 +55,17 @@ export default function Hero() {
                 {item.label}
               </a>
             ))}
+            <a
+              href="#contact"
+              className="hidden md:inline-flex items-center justify-center rounded-full bg-[#14171C] px-6 py-3 text-xs font-semibold uppercase tracking-wider text-white hover:bg-[#2F6B4F] transition-all duration-300 shadow-sm"
+            >
+              Me contacter
+            </a>
           </nav>
-
-          <a
-            href="#contact"
-            className="hidden md:inline-flex items-center justify-center rounded-full bg-[#14171C] px-6 py-3 text-xs font-semibold uppercase tracking-wider text-white hover:bg-[#2F6B4F] transition-all duration-300 shadow-sm"
-          >
-            Me contacter
-          </a>
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-[#14171C] hover:text-[#2F6B4F] transition-colors focus:outline-none"
+            className="lg:hidden p-2 text-[#14171C] hover:text-[#2F6B4F] transition-colors focus:outline-none"
             aria-label="Toggle Menu"
           >
             {isOpen ? <HiX size={26} /> : <HiMenuAlt3 size={26} />}
@@ -73,7 +73,7 @@ export default function Hero() {
         </div>
 
         <div
-          className={`absolute top-24 left-0 w-full bg-[#F4F5F1]/95 backdrop-blur-lg border-b border-[#E4E6E0]/60 transition-all duration-300 ease-in-out md:hidden overflow-hidden ${
+          className={`absolute top-24 left-0 w-full bg-[#F4F5F1]/95 backdrop-blur-lg border-b border-[#E4E6E0]/60 transition-all duration-300 ease-in-out lg:hidden overflow-hidden ${
             isOpen ? "max-h-[400px] opacity-100 py-6" : "max-h-0 opacity-0"
           }`}
         >
@@ -100,8 +100,8 @@ export default function Hero() {
       </header>
 
       <div className="relative z-10 mx-auto max-w-6xl w-full px-6 py-20 md:py-32 grid md:grid-cols-[1.2fr_0.8fr] gap-16 md:gap-8 items-center my-auto">
-        <div className="space-y-8 md:space-y-10">
-          <div className="inline-flex items-center gap-2.5 rounded-full border border-[#2F6B4F]/20 bg-[#2F6B4F]/5 px-4 py-2 text-xs font-medium text-[#2F6B4F] tracking-wide">
+        <div className="space-y-8 md:space-y-10 text-center md:text-left">
+          <div className="inline-flex items-center justify-center md:justify-start gap-2.5 rounded-full border border-[#2F6B4F]/20 bg-[#2F6B4F]/5 px-4 py-2 text-xs font-medium text-[#2F6B4F] tracking-wide">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2F6B4F] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2F6B4F]"></span>
@@ -122,7 +122,7 @@ export default function Hero() {
             votre activité.
           </h1>
 
-          <p className="text-lg md:text-xl text-[#5B6168] max-w-lg leading-relaxed font-light">
+          <p className="text-lg md:text-xl text-[#5B6168] max-w-lg leading-relaxed font-light mx-auto md:mx-0">
             Création de sites vitrines d&apos;exception, refontes et
             applications web modernes sur-mesure avec React, Next.js et
             TypeScript.
@@ -147,7 +147,7 @@ export default function Hero() {
             </a>
           </div>
 
-          <div className="pt-4 border-t border-[#E4E6E0]/80 flex flex-wrap gap-x-8 gap-y-3 text-[13px] text-[#7A828A] tracking-wide uppercase font-medium">
+          <div className="pt-4 border-t border-[#E4E6E0]/80 flex flex-wrap justify-center md:justify-start gap-x-8 gap-y-3 text-[13px] text-[#7A828A] tracking-wide uppercase font-medium">
             <span className="flex items-center gap-2">
               <BsFillLightningChargeFill /> Réponse sous 24h
             </span>

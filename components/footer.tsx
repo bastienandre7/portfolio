@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#FAFBF9] text-[#14171C] relative overflow-hidden border-t border-[#E4E6E0]/60">
+    <footer className="bg-[#F4F5F1] text-[#14171C] relative overflow-hidden">
       <div className="relative z-10 mx-auto max-w-6xl px-6 py-12 md:py-16">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-10 border-b border-[#E4E6E0]/40">
           <div className="space-y-2">
@@ -85,13 +85,13 @@ export default function Footer() {
 
           <div className="flex gap-6 font-medium">
             <a
-              href="#"
+              href="/mentions-legales"
               className="hover:text-[#2F6B4F] transition-colors duration-200"
             >
               Mentions légales
             </a>
             <a
-              href="#"
+              href="/politique-de-confidentialite"
               className="hover:text-[#2F6B4F] transition-colors duration-200"
             >
               Politique de confidentialité

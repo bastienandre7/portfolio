@@ -1,6 +1,7 @@
 import About from "@/components/about";
 import Contact from "@/components/contact";
 import Hero from "@/components/hero";
+import Parcours from "@/components/parcours";
 import Process from "@/components/process";
 import Projects from "@/components/projects";
 import Services from "@/components/services";
@@ -12,6 +13,7 @@ export default function Home() {
       <Hero />
       <Services />
       <About />
+      <Parcours />
       <Projects />
       <Process />
       <TechStack />

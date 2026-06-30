@@ -3,19 +3,37 @@ import Image from "next/image";
 const projects = [
   {
     type: "Projet personnel",
-    title: "BloomTPL",
+    title: "Prism",
     description:
-      "Bibliothèque de starter kits Next.js destinée aux développeurs et entrepreneurs : authentification, paiements et base de données préconfigurés.",
-    tags: ["Next.js", "Prisma", "Stripe", "NextAuth"],
+      "Plateforme e-commerce de bout en bout : catalogue avec gestion des variantes et des stocks, panier persistant en temps réel, paiement sécurisé Stripe et tableau de bord administrateur avec analytics.",
+    tags: [
+      "Next.js 16",
+      "PostgreSQL",
+      "Stripe",
+      "Zustand",
+      "NextAuth.js",
+      "TailwindCSS v4",
+    ],
     image: "/projects/prism.png",
+    link: "https://prism-fullstack-ecommerce-app.vercel.app/",
+  },
+  {
+    type: "Projet personnel",
+    title: "Evines",
+    description:
+      "Application SaaS Full-Stack complète : authentification sécurisée multi-provider, tunnel de paiement Stripe avec gestion des abonnements, base PostgreSQL et e-mails transactionnels automatisés.",
+    tags: ["Next.js", "React", "Stripe", "Prisma", "PostgreSQL", "Auth.js"],
+    image: "/projects/evines-1.png",
+    link: "https://evines-saas-platform-full-solution.vercel.app/",
   },
   {
     type: "Projet personnel",
     title: "Orbit",
     description:
-      "Template Next.js premium pour agences digitales, conçu pour la vente : design system, animations et performance soignés.",
-    tags: ["Next.js", "TailwindCSS", "TypeScript"],
-    image: "/projects/orbit.png",
+      "Site vitrine multipage pour une agence créative fictive : accueil, portfolio, blog dynamique et contact. Animations au scroll et architecture App Router complète.",
+    tags: ["Next.js", "TypeScript", "TailwindCSS"],
+    image: "/projects/orbit-1.png",
+    link: "https://orbit-multipage-agency-website.vercel.app/",
   },
 ];
 
@@ -25,7 +43,7 @@ export default function Projects() {
   return (
     <section
       id="projets"
-      className="bg-[#FAFBF9] text-[#14171C] relative overflow-hidden py-24 md:py-32 border-t border-[#E4E6E0]/60"
+      className="bg-[#F4F5F1] text-[#14171C] relative overflow-hidden py-24 md:py-32"
     >
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         <div className="text-center space-y-4 mb-16 md:mb-24 max-w-xl mx-auto">
@@ -42,42 +60,82 @@ export default function Projects() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 lg:gap-10 items-stretch">
-          {projects.map(({ type, title, description, tags, image }) => (
+          {projects.map(({ type, title, description, tags, image, link }) => (
             <article
               key={title}
               className="bg-white rounded-[24px] border border-[#E4E6E0]/50 shadow-[0_15px_40px_rgba(0,0,0,0.02)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col transition-all duration-500 transform hover:-translate-y-1 group h-full"
             >
+              {/* Image cliquable */}
               <div className="aspect-[16/10] bg-[#EAECE6] relative overflow-hidden">
-                <Image
-                  src={image}
-                  alt={title}
-                  fill
-                  className="object-cover filter grayscale-[5%] group-hover:scale-[103%] group-hover:grayscale-0 transition-all duration-700 ease-out"
-                />
+                {link ? (
+                  <a
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full h-full"
+                  >
+                    <Image
+                      src={image}
+                      alt={title}
+                      fill
+                      className="object-cover filter grayscale-[5%] group-hover:scale-[103%] group-hover:grayscale-0 transition-all duration-700 ease-out"
+                    />
+                  </a>
+                ) : (
+                  <Image
+                    src={image}
+                    alt={title}
+                    fill
+                    className="object-cover filter grayscale-[5%] group-hover:scale-[103%] group-hover:grayscale-0 transition-all duration-700 ease-out"
+                  />
+                )}
               </div>
 
-              <div className="p-6 md:p-8 flex flex-col flex-1 justify-between">
-                <div>
+              {/* Contenu */}
+              <div className="p-6 md:p-8 flex flex-col flex-1 justify-between border-t border-[#E4E6E0]/60">
+                <div className="flex-1">
                   <span className="text-[11px] font-semibold uppercase tracking-widest text-[#2F6B4F] mb-2.5 block">
                     {type}
                   </span>
+
+                  {/* Titre classique et propre */}
                   <h3 className="text-2xl font-medium text-[#14171C] mb-3 group-hover:text-[#2F6B4F] transition-colors">
                     {title}
                   </h3>
+
                   <p className="text-sm text-[#5B6168] leading-relaxed mb-6 font-light">
                     {description}
                   </p>
                 </div>
 
-                <div className="flex gap-2 flex-wrap pt-5 border-t border-[#E4E6E0]/40">
-                  {tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs font-medium bg-[#EAF1EC]/80 border border-[#2F6B4F]/10 text-[#2F6B4F] px-3 py-1 rounded-lg"
+                {/* Zone du bas réorganisée pour être ultra-claire */}
+                <div className="pt-5 border-t border-[#E4E6E0]/40 mt-auto flex flex-col gap-4">
+                  {/* Les Tags */}
+                  <div className="flex gap-2 flex-wrap">
+                    {tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-xs font-medium bg-[#EAF1EC]/80 border border-[#2F6B4F]/10 text-[#2F6B4F] px-3 py-1 rounded-lg"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Le Bouton d'action explicite (uniquement si un lien existe) */}
+                  {link && (
+                    <a
+                      href={link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 w-full text-center bg-[#FAFBF9] hover:bg-[#2F6B4F] text-[#14171C] hover:text-white border border-[#E4E6E0] hover:border-[#2F6B4F] py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all duration-300 group/btn mt-1"
                     >
-                      {tag}
-                    </span>
-                  ))}
+                      Voir le site en direct
+                      <span className="text-sm transition-transform duration-300 group-hover/btn:translate-x-1">
+                        →
+                      </span>
+                    </a>
+                  )}
                 </div>
               </div>
             </article>
