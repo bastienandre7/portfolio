@@ -193,7 +193,7 @@ export default function Hero() {
               </a>
 
               <a
-                href="https://github.com/..."
+                href="https://github.com/bastienandre7"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visiter le profil GitHub"
@@ -206,7 +206,7 @@ export default function Hero() {
               </a>
 
               <a
-                href="https://linkedin.com/in/..."
+                href="https://www.linkedin.com/in/bastienandre-dev/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visiter le profil LinkedIn"

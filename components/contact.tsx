@@ -1,20 +1,14 @@
 "use client";
 
-import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
-import { useState } from "react"; // <-- AJOUTÉ
+import { ArrowRight, Mail, MapPin } from "lucide-react";
+import { useState } from "react";
 
 const contacts = [
   {
     icon: Mail,
     title: "Email",
-    value: "contact@bastienandredev.fr", // Mettre à jour ton mail
+    value: "contact@bastienandredev.fr",
     href: "mailto:contact@bastienandredev.fr",
-  },
-  {
-    icon: Phone,
-    title: "Téléphone",
-    value: "06 00 00 00 00", // À modifier
-    href: "tel:+33600000000",
   },
   {
     icon: MapPin,
