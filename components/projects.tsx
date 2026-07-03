@@ -3,6 +3,24 @@ import Image from "next/image";
 const projects = [
   {
     type: "Projet personnel",
+    title: "Braise",
+    description:
+      "Site vitrine haut de gamme pour un restaurant gastronomique : design éditorial asymétrique, menu dynamique, formulaire de réservation responsive et carte interactive personnalisée.",
+    tags: ["Next.js", "TypeScript", "TailwindCSS"],
+    image: "/projects/braise-1.png",
+    link: "https://braise-restaurant.netlify.app/",
+  },
+  {
+    type: "Projet personnel",
+    title: "Altis",
+    description:
+      "Site vitrine moderne pour un artisan électricien local : accueil optimisé pour la conversion, domaines d'intervention, chantiers réalisés, réassurance client et formulaire de contact. Design responsive, animations fluides au scroll et architecture App Router complète.",
+    tags: ["Next.js", "TypeScript", "TailwindCSS"],
+    image: "/projects/altis-1.png",
+    link: "https://altis-electricite.vercel.app/",
+  },
+  {
+    type: "Projet personnel",
     title: "Prism",
     description:
       "Plateforme e-commerce de bout en bout : catalogue avec gestion des variantes et des stocks, panier persistant en temps réel, paiement sécurisé Stripe et tableau de bord administrateur avec analytics.",
@@ -25,15 +43,6 @@ const projects = [
     tags: ["Next.js", "React", "Stripe", "Prisma", "PostgreSQL", "Auth.js"],
     image: "/projects/evines-1.png",
     link: "https://evines-saas-platform-full-solution.vercel.app/",
-  },
-  {
-    type: "Projet personnel",
-    title: "Orbit",
-    description:
-      "Site vitrine multipage pour une agence créative fictive : accueil, portfolio, blog dynamique et contact. Animations au scroll et architecture App Router complète.",
-    tags: ["Next.js", "TypeScript", "TailwindCSS"],
-    image: "/projects/orbit-1.png",
-    link: "https://orbit-multipage-agency-website.vercel.app/",
   },
 ];
 
