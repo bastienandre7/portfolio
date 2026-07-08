@@ -3,6 +3,7 @@ export default function robots() {
     rules: {
       userAgent: "*",
       allow: "/",
+      disallow: ["/mentions-legales", "/politique-de-confidentialite"],
     },
     sitemap: "https://bastienandredev.fr/sitemap.xml",
   };
