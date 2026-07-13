@@ -22,8 +22,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Développeur web freelance basé à Uzès, spécialisé React, Next.js et TypeScript. Création de sites vitrines, refontes et applications web sur-mesure pour entreprises et indépendants.",
-
+    "Développeur web freelance à Uzès (Gard) — sites vitrines, refontes et apps web sur-mesure en React, Next.js et TypeScript. Devis gratuit.",
   keywords: [
     "développeur web freelance",
     "développeur Next.js",
@@ -91,12 +90,6 @@ export const metadata: Metadata = {
   },
 
   manifest: "/site.webmanifest",
-
-  // Vérification Google Search Console — récupère ton code sur
-  // search.google.com/search-console après avoir ajouté ta propriété
-  // verification: {
-  //   google: "ton-code-de-verification",
-  // },
 };
 
 export default function RootLayout({
@@ -106,7 +99,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="fr"
       className={`${geistSans.className} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
