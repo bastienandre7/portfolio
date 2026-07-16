@@ -34,82 +34,86 @@ const timelineEvents = [
     category: "education",
   },
 ];
+
 export default function Parcours() {
   return (
     <section
       id="parcours"
-      className="bg-[#FAFBF9] text-[#14171C] py-24 md:py-32"
+      className="relative bg-[#132018] text-[#F4F6F2] py-24 md:py-32 overflow-hidden"
     >
-      <div className="mx-auto max-w-4xl w-full px-6">
-        {/* En-tête de section */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.06]"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 20% 20%, #ffffff 0, transparent 45%), radial-gradient(circle at 80% 70%, #ffffff 0, transparent 40%)",
+        }}
+      />
+
+      <div className="relative mx-auto max-w-4xl w-full px-6">
         <div className="space-y-4 mb-16 md:mb-24 text-center">
-          <p className="text-xs font-semibold uppercase tracking-wider text-[#2F6B4F]">
+          <p className="text-xs font-semibold uppercase tracking-wider text-[#8FBF a1]/0 hidden" />
+          <p className="text-xs font-semibold uppercase tracking-wider text-[#9FCBAE]">
             Mon Histoire
           </p>
           <h2
-            className="text-4xl md:text-5xl leading-[1.08] tracking-tight text-[#14171C]"
+            className="text-4xl md:text-5xl leading-[1.08] tracking-tight text-[#F4F6F2]"
             style={{ fontFamily: "'Fraunces', serif", fontWeight: 500 }}
           >
             Parcours &{" "}
-            <span className="italic text-[#2F6B4F] font-normal">
+            <span className="italic text-[#9FCBAE] font-normal">
               Expériences.
             </span>
           </h2>
         </div>
 
-        {/* Conteneur de la Frise Chronologique */}
-        <div className="relative border-l border-[#E4E6E0] ml-4 md:ml-32 space-y-12 md:space-y-16">
+        <div className="relative border-l border-white/10 ml-4 md:ml-32 space-y-12 md:space-y-16">
           {timelineEvents.map((event, index) => {
             const IsExp = event.category === "experience";
 
             return (
               <div key={index} className="relative pl-8 md:pl-10 group">
-                {/* Date alignée à gauche sur grand écran, au-dessus sur mobile */}
                 <div className="md:absolute md:left-[-140px] md:top-1.5 md:w-28 md:text-right mb-2 md:mb-0">
-                  <span className="text-xs font-semibold tracking-wider text-[#5B6168]/70 group-hover:text-[#2F6B4F] transition-colors duration-300">
+                  <span className="text-xs font-semibold tracking-wider text-[#F4F6F2]/50 group-hover:text-[#9FCBAE] transition-colors duration-300">
                     {event.date}
                   </span>
                 </div>
 
-                {/* Le Point/Icône sur la ligne verticale */}
-                <div className="absolute left-[-13px] top-1 w-6 h-6 rounded-full bg-white border border-[#E4E6E0] flex items-center justify-center shadow-sm group-hover:border-[#2F6B4F] group-hover:bg-[#EAF1EC] transition-all duration-500">
+                <div className="absolute left-[-13px] top-1 w-6 h-6 rounded-full bg-[#132018] border border-white/15 flex items-center justify-center shadow-sm group-hover:border-[#9FCBAE] group-hover:bg-[#1D3226] transition-all duration-500">
                   {IsExp ? (
                     <Briefcase
                       size={11}
-                      className="text-[#5B6168] group-hover:text-[#2F6B4F] transition-colors"
+                      className="text-[#F4F6F2]/60 group-hover:text-[#9FCBAE] transition-colors"
                     />
                   ) : (
                     <GraduationCap
                       size={12}
-                      className="text-[#5B6168] group-hover:text-[#2F6B4F] transition-colors"
+                      className="text-[#F4F6F2]/60 group-hover:text-[#9FCBAE] transition-colors"
                     />
                   )}
                 </div>
 
-                {/* Contenu textuel */}
                 <div className="space-y-2">
                   <div className="flex flex-wrap items-center gap-2">
-                    <h3 className="text-xl font-medium text-[#14171C] tracking-tight">
+                    <h3 className="text-xl font-medium text-[#F4F6F2] tracking-tight">
                       {event.title}
                     </h3>
 
-                    {/* Petit Badge explicatif */}
                     <span
                       className={`text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full border ${
                         IsExp
-                          ? "bg-[#EAF1EC] border-[#2F6B4F]/10 text-[#2F6B4F]"
-                          : "bg-[#FAFBF9] border-[#E4E6E0] text-[#5B6168]"
+                          ? "bg-[#1D3226] border-[#9FCBAE]/20 text-[#9FCBAE]"
+                          : "bg-white/5 border-white/10 text-[#F4F6F2]/70"
                       }`}
                     >
                       {IsExp ? "Expérience" : "Formation"}
                     </span>
                   </div>
 
-                  <p className="text-xs font-semibold uppercase tracking-wide text-[#5B6168]/80">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-[#F4F6F2]/50">
                     {event.subtitle}
                   </p>
 
-                  <p className="text-sm text-[#5B6168] font-light leading-relaxed max-w-2xl pt-1">
+                  <p className="text-sm text-[#F4F6F2]/70 font-light leading-relaxed max-w-2xl pt-1">
                     {event.description}
                   </p>
                 </div>

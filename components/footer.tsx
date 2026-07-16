@@ -4,17 +4,17 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#F4F5F1] text-[#14171C] relative overflow-hidden">
+    <footer className="bg-[#132018] text-[#F4F5F1] relative overflow-hidden">
       <div className="relative z-10 mx-auto max-w-6xl px-6 py-12 md:py-16">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-10 border-b border-[#E4E6E0]/40">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-10 border-b border-white/10">
           <div className="space-y-2">
             <h3
-              className="text-xl md:text-2xl text-[#14171C] font-normal"
+              className="text-xl md:text-2xl text-[#F4F5F1] font-normal"
               style={{ fontFamily: "'Fraunces', serif" }}
             >
               Bastien Andre
             </h3>
-            <p className="text-sm text-[#5B6168] max-w-md font-light leading-relaxed">
+            <p className="text-sm text-[#A8AEB4] max-w-md font-light leading-relaxed">
               Développeur Full Stack spécialisé en Next.js. J&apos;accompagne
               les entreprises dans la création d&apos;interfaces rapides,
               modernes et pensées pour durer.
@@ -25,7 +25,7 @@ export default function Footer() {
             <a
               href="mailto:contact@bastienandredev.fr"
               aria-label="Envoyer un email"
-              className="w-11 h-11 rounded-xl bg-white border border-[#E4E6E0]/60 shadow-[0_4px_12px_rgba(0,0,0,0.01)] flex items-center justify-center text-[#5B6168] hover:border-[#2F6B4F]/40 hover:text-[#2F6B4F] hover:bg-[#EAF1EC]/40 transition-all duration-300 group"
+              className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#A8AEB4] hover:border-[#9FCBAE]/40 hover:text-[#9FCBAE] hover:bg-[#9FCBAE]/10 transition-all duration-300 group"
             >
               <CiMail
                 size={20}
@@ -38,7 +38,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visiter le profil GitHub"
-              className="w-11 h-11 rounded-xl bg-white border border-[#E4E6E0]/60 shadow-[0_4px_12px_rgba(0,0,0,0.01)] flex items-center justify-center text-[#5B6168] hover:border-[#2F6B4F]/40 hover:text-[#2F6B4F] hover:bg-[#EAF1EC]/40 transition-all duration-300 group"
+              className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#A8AEB4] hover:border-[#9FCBAE]/40 hover:text-[#9FCBAE] hover:bg-[#9FCBAE]/10 transition-all duration-300 group"
             >
               <FaGithub
                 size={18}
@@ -51,7 +51,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visiter le profil LinkedIn"
-              className="w-11 h-11 rounded-xl bg-white border border-[#E4E6E0]/60 shadow-[0_4px_12px_rgba(0,0,0,0.01)] flex items-center justify-center text-[#5B6168] hover:border-[#2F6B4F]/40 hover:text-[#2F6B4F] hover:bg-[#EAF1EC]/40 transition-all duration-300 group"
+              className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#A8AEB4] hover:border-[#9FCBAE]/40 hover:text-[#9FCBAE] hover:bg-[#9FCBAE]/10 transition-all duration-300 group"
             >
               <FaLinkedin
                 size={18}
@@ -64,7 +64,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visiter le profil Malt"
-              className="w-11 h-11 rounded-xl bg-white border border-[#E4E6E0]/60 shadow-[0_4px_12px_rgba(0,0,0,0.01)] flex items-center justify-center text-[#5B6168] hover:border-[#2F6B4F]/40 hover:text-[#2F6B4F] hover:bg-[#EAF1EC]/40 transition-all duration-300 group"
+              className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#A8AEB4] hover:border-[#9FCBAE]/40 hover:text-[#9FCBAE] hover:bg-[#9FCBAE]/10 transition-all duration-300 group"
             >
               <Image
                 src="/logo-malt.jpg"
@@ -77,7 +77,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-light text-[#7A828A] tracking-wide">
+        <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-light text-[#6E747A] tracking-wide">
           <p>
             &copy; {new Date().getFullYear()} Bastien Andre. Tous droits
             réservés.
@@ -86,13 +86,13 @@ export default function Footer() {
           <div className="flex gap-6 font-medium">
             <a
               href="/mentions-legales"
-              className="hover:text-[#2F6B4F] transition-colors duration-200"
+              className="hover:text-[#9FCBAE] transition-colors duration-200"
             >
               Mentions légales
             </a>
             <a
               href="/politique-de-confidentialite"
-              className="hover:text-[#2F6B4F] transition-colors duration-200"
+              className="hover:text-[#9FCBAE] transition-colors duration-200"
             >
               Politique de confidentialité
             </a>

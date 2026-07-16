@@ -79,6 +79,7 @@ export default function TechStack() {
                   <Icon
                     size={18}
                     className="text-[#2F6B4F] group-hover:text-white transition-colors"
+                    aria-label={`${title} icon`}
                   />
                 </div>
 
