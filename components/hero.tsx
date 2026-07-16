@@ -8,21 +8,27 @@ import { FaGithub, FaLinkedin, FaMapPin, FaPen } from "react-icons/fa";
 
 export default function Hero() {
   return (
-    <>
-      <section className="bg-[#0B1410] text-[#F4F5F1] min-h-screen relative overflow-hidden flex flex-col justify-center">
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          <Silk
-            speed={8.2}
-            scale={2.2}
-            color="#2F6B4F"
-            noiseIntensity={1.2}
-            rotation={2.26}
-          />
-        </div>
+    <section className="bg-[#0B1410] text-[#F4F5F1] min-h-screen relative overflow-hidden flex flex-col">
+      {/* Fond Silk animé */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <Silk
+          speed={8.2}
+          scale={2.2}
+          color="#2F6B4F"
+          noiseIntensity={1.2}
+          rotation={2.26}
+        />
+      </div>
 
-        <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0B1410]/40 via-[#0B1410]/10 to-[#0B1410]/70 pointer-events-none" />
+      {/* Voile de contraste global pour garder le texte lisible */}
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0B1410]/50 via-[#0B1410]/25 to-[#0B1410]/75 pointer-events-none" />
 
-        <div className="relative z-10 mx-auto max-w-6xl w-full px-6 pt-32 pb-20 md:pt-40 md:pb-32 grid md:grid-cols-[1.2fr_0.8fr] gap-16 md:gap-8 items-center">
+      {/* Voile directionnel supplémentaire côté texte (gauche), plus fort en bas où se trouvent le paragraphe et les badges */}
+      <div className="absolute inset-0 z-[1] bg-gradient-to-r from-[#0B1410]/60 via-[#0B1410]/20 to-transparent pointer-events-none" />
+
+      {/* Bloc de contenu : grandit librement selon son propre contenu, jamais tronqué, quelle que soit la taille d'écran */}
+      <div className="relative z-10 min-h-screen flex items-center pt-24 pb-16 md:pt-28 md:pb-20">
+        <div className="mx-auto max-w-6xl w-full px-6 grid md:grid-cols-[1.2fr_0.8fr] gap-16 md:gap-8 items-center">
           <div className="space-y-8 md:space-y-10 text-center md:text-left">
             <div className="inline-flex items-center justify-center md:justify-start gap-2.5 rounded-full border border-[#9FCBAE]/30 bg-[#9FCBAE]/10 px-4 py-2 text-xs font-medium text-[#9FCBAE] tracking-wide backdrop-blur-sm">
               <span className="relative flex h-2 w-2">
@@ -45,7 +51,7 @@ export default function Hero() {
               votre activité.
             </h1>
 
-            <p className="text-lg md:text-xl text-[#C9CFC9] max-w-lg leading-relaxed font-light mx-auto md:mx-0">
+            <p className="text-lg md:text-xl text-[#E4E7E2] max-w-lg leading-relaxed font-light mx-auto md:mx-0 [text-shadow:0_2px_12px_rgba(0,0,0,0.35)]">
               Création de sites vitrines d&apos;exception, refontes et
               applications web modernes sur-mesure avec React, Next.js et
               TypeScript.
@@ -70,15 +76,16 @@ export default function Hero() {
               </a>
             </div>
 
-            <div className="pt-4 border-t border-white/10 flex flex-wrap justify-center md:justify-start gap-x-8 gap-y-3 text-[13px] text-[#9AA39B] tracking-wide uppercase font-medium">
+            <div className="pt-4 border-t border-white/15 flex flex-wrap justify-center md:justify-start gap-x-8 gap-y-3 text-[13px] text-[#C9CFC9] tracking-wide uppercase font-medium">
               <span className="flex items-center gap-2">
-                <BsFillLightningChargeFill /> Réponse sous 24h
+                <BsFillLightningChargeFill className="text-[#9FCBAE]" /> Réponse
+                sous 24h
               </span>
               <span className="flex items-center gap-2">
-                <FaPen /> Devis gratuit
+                <FaPen className="text-[#9FCBAE]" /> Devis gratuit
               </span>
               <span className="flex items-center gap-2">
-                <FaMapPin /> Basé à Uzès
+                <FaMapPin className="text-[#9FCBAE]" /> Basé à Uzès
               </span>
             </div>
           </div>
@@ -160,7 +167,16 @@ export default function Hero() {
             </div>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+
+      {/* Fondu de sortie vers Services, placé dans le flux juste après le contenu réel : jamais de chevauchement, quelle que soit la hauteur du hero */}
+      <div
+        className="relative z-[2] h-40 md:h-56 w-full pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to bottom, transparent 0%, transparent 10%, rgba(250,251,249,0.08) 30%, rgba(250,251,249,0.28) 55%, rgba(250,251,249,0.6) 78%, #FAFBF9 100%)",
+        }}
+      />
+    </section>
   );
 }

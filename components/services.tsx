@@ -38,8 +38,9 @@ export default function Services() {
       id="services"
       className="bg-[#FAFBF9] text-[#14171C] relative overflow-hidden py-24 md:py-32"
     >
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
-        <div className="absolute top-[20%] left-[-10%] w-[45vw] h-[45vw] rounded-full bg-[#EAECE6] blur-[120px]" />
+      {/* Formes décoratives décalées plus bas pour ne pas surcharger la zone de raccord avec le Hero */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
+        <div className="absolute top-[38%] left-[-10%] w-[45vw] h-[45vw] rounded-full bg-[#EAECE6] blur-[120px]" />
         <div className="absolute bottom-[-10%] right-[-5%] w-[35vw] h-[35vw] rounded-full bg-[#E3E8E1] blur-[100px]" />
       </div>
 
