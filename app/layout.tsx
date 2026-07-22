@@ -53,7 +53,7 @@ export const metadata: Metadata = {
       "Création de sites vitrines, refontes et applications web sur-mesure avec React, Next.js et TypeScript. Basé à Uzès, intervient partout en France à distance.",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Bastien Andre - Développeur Web Freelance Next.js",

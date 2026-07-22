@@ -72,18 +72,18 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="bg-[#FAFBF9] text-[#14171C] relative overflow-hidden py-24 md:py-32"
+      className="bg-[#FAF7F0] text-[#1F2A1F] relative overflow-hidden py-24 md:py-32"
     >
       <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
-        <div className="absolute bottom-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-[#E3E8E1] blur-[130px]" />
-        <div className="absolute top-[20%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-[#EAECE6] blur-[110px]" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-[#EDE4D4] blur-[130px]" />
+        <div className="absolute top-[20%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-[#E3D9C6] blur-[110px]" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-6xl w-full px-6">
         <div className="flex flex-col-reverse lg:flex-row lg:grid lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 items-start">
-          <div className="bg-white rounded-[24px] border border-[#E4E6E0]/50 shadow-[0_15px_40px_rgba(0,0,0,0.02)] p-6 md:p-10">
+          <div className="bg-white rounded-[24px] border border-[#E4DACB]/60 shadow-[0_15px_40px_rgba(31,42,31,0.03)] p-6 md:p-10">
             <h3
-              className="text-2xl md:text-3xl text-[#14171C] font-normal mb-6"
+              className="text-2xl md:text-3xl text-[#1F2A1F] font-normal mb-6"
               style={{ fontFamily: "'Fraunces', serif" }}
             >
               Une idée en tête ?
@@ -94,7 +94,7 @@ export default function Contact() {
                 <div className="space-y-1.5">
                   <label
                     htmlFor="name"
-                    className="text-xs font-semibold uppercase tracking-wider text-[#5B6168]"
+                    className="text-xs font-semibold uppercase tracking-wider text-[#5B6152]"
                   >
                     Nom complet
                   </label>
@@ -104,13 +104,13 @@ export default function Contact() {
                     name="name" // AJOUTÉ POUR LE FORMDATA
                     required
                     placeholder="Alexandre Rossi"
-                    className="w-full bg-[#FAFBF9] rounded-xl border border-[#E4E6E0] px-4 py-3 text-sm text-[#14171C] placeholder-[#5B6168]/40 focus:outline-none focus:border-[#2F6B4F]/60 focus:ring-1 focus:ring-[#2F6B4F]/60 transition-all font-light"
+                    className="w-full bg-[#FAF7F0] rounded-xl border border-[#E4DACB] px-4 py-3 text-sm text-[#1F2A1F] placeholder-[#5B6152]/40 focus:outline-none focus:border-[#5E6B52]/60 focus:ring-1 focus:ring-[#5E6B52]/60 transition-all font-light"
                   />
                 </div>
                 <div className="space-y-1.5">
                   <label
                     htmlFor="email"
-                    className="text-xs font-semibold uppercase tracking-wider text-[#5B6168]"
+                    className="text-xs font-semibold uppercase tracking-wider text-[#5B6152]"
                   >
                     Adresse email
                   </label>
@@ -120,7 +120,7 @@ export default function Contact() {
                     name="email" // AJOUTÉ POUR LE FORMDATA
                     required
                     placeholder="alex@exemple.com"
-                    className="w-full bg-[#FAFBF9] rounded-xl border border-[#E4E6E0] px-4 py-3 text-sm text-[#14171C] placeholder-[#5B6168]/40 focus:outline-none focus:border-[#2F6B4F]/60 focus:ring-1 focus:ring-[#2F6B4F]/60 transition-all font-light"
+                    className="w-full bg-[#FAF7F0] rounded-xl border border-[#E4DACB] px-4 py-3 text-sm text-[#1F2A1F] placeholder-[#5B6152]/40 focus:outline-none focus:border-[#5E6B52]/60 focus:ring-1 focus:ring-[#5E6B52]/60 transition-all font-light"
                   />
                 </div>
               </div>
@@ -128,7 +128,7 @@ export default function Contact() {
               <div className="space-y-1.5">
                 <label
                   htmlFor="subject"
-                  className="text-xs font-semibold uppercase tracking-wider text-[#5B6168]"
+                  className="text-xs font-semibold uppercase tracking-wider text-[#5B6152]"
                 >
                   Sujet
                 </label>
@@ -138,14 +138,14 @@ export default function Contact() {
                   name="subject" // AJOUTÉ POUR LE FORMDATA
                   required
                   placeholder="Refonte de notre site e-commerce..."
-                  className="w-full bg-[#FAFBF9] rounded-xl border border-[#E4E6E0] px-4 py-3 text-sm text-[#14171C] placeholder-[#5B6168]/40 focus:outline-none focus:border-[#2F6B4F]/60 focus:ring-1 focus:ring-[#2F6B4F]/60 transition-all font-light"
+                  className="w-full bg-[#FAF7F0] rounded-xl border border-[#E4DACB] px-4 py-3 text-sm text-[#1F2A1F] placeholder-[#5B6152]/40 focus:outline-none focus:border-[#5E6B52]/60 focus:ring-1 focus:ring-[#5E6B52]/60 transition-all font-light"
                 />
               </div>
 
               <div className="space-y-1.5">
                 <label
                   htmlFor="message"
-                  className="text-xs font-semibold uppercase tracking-wider text-[#5B6168]"
+                  className="text-xs font-semibold uppercase tracking-wider text-[#5B6152]"
                 >
                   Votre projet en quelques mots
                 </label>
@@ -155,14 +155,14 @@ export default function Contact() {
                   required
                   rows={5}
                   placeholder="Décrivez ici vos besoins, vos objectifs et vos délais estimés..."
-                  className="w-full bg-[#FAFBF9] rounded-xl border border-[#E4E6E0] px-4 py-3 text-sm text-[#14171C] placeholder-[#5B6168]/40 focus:outline-none focus:border-[#2F6B4F]/60 focus:ring-1 focus:ring-[#2F6B4F]/60 transition-all font-light resize-none"
+                  className="w-full bg-[#FAF7F0] rounded-xl border border-[#E4DACB] px-4 py-3 text-sm text-[#1F2A1F] placeholder-[#5B6152]/40 focus:outline-none focus:border-[#5E6B52]/60 focus:ring-1 focus:ring-[#5E6B52]/60 transition-all font-light resize-none"
                 />
               </div>
 
               {/* RETOUR VISUEL SUR L'ENVOI (AJOUTÉ) */}
               {status.type && (
                 <div
-                  className={`p-4 rounded-xl text-sm border ${status.type === "success" ? "bg-[#EAF1EC] text-[#2F6B4F] border-[#2F6B4F]/20" : "bg-red-50 text-red-700 border-red-200"}`}
+                  className={`p-4 rounded-xl text-sm border ${status.type === "success" ? "bg-[#EFF1E9] text-[#5E6B52] border-[#5E6B52]/20" : "bg-red-50 text-red-700 border-red-200"}`}
                 >
                   {status.message}
                 </div>
@@ -172,7 +172,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting} // DESACTIVÉ PENDANT L'ENVOI
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-xl bg-[#14171C] px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-white hover:bg-[#2F6B4F] transition-all duration-300 shadow-sm group disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-xl bg-[#C97A3D] px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-white hover:bg-[#B3672E] transition-all duration-300 shadow-sm group disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
                   <ArrowRight
@@ -186,19 +186,19 @@ export default function Contact() {
 
           <div className="space-y-10 lg:sticky lg:top-28">
             <div className="space-y-4">
-              <p className="text-xs font-semibold uppercase tracking-wider text-[#2F6B4F]">
+              <p className="text-xs font-semibold uppercase tracking-wider text-[#5E6B52]">
                 Contact
               </p>
               <h2
-                className="text-4xl md:text-5xl leading-[1.08] tracking-tight text-[#14171C]"
+                className="text-4xl md:text-5xl leading-[1.08] tracking-tight text-[#1F2A1F]"
                 style={{ fontFamily: "'Fraunces', serif", fontWeight: 500 }}
               >
                 Discutons de votre{" "}
-                <span className="italic text-[#2F6B4F] font-normal">
+                <span className="italic text-[#C97A3D] font-normal">
                   projet.
                 </span>
               </h2>
-              <p className="text-[#5B6168] text-sm md:text-base font-light leading-relaxed pt-2">
+              <p className="text-[#5B6152] text-sm md:text-base font-light leading-relaxed pt-2">
                 Que vous ayez besoin d&apos;un nouveau site, d&apos;une refonte
                 ou d&apos;une application web, je serai ravi d&apos;échanger
                 avec vous. Le premier rendez-vous est gratuit et sans
@@ -210,19 +210,19 @@ export default function Contact() {
               {contacts.map(({ icon: Icon, title, value, href }) => {
                 const content = (
                   <>
-                    <div className="w-11 h-11 rounded-xl bg-[#EAF1EC] border border-[#2F6B4F]/10 flex items-center justify-center transition-colors duration-300 group-hover:bg-[#2F6B4F]">
+                    <div className="w-11 h-11 rounded-xl bg-[#EFF1E9] border border-[#5E6B52]/15 flex items-center justify-center transition-colors duration-300 group-hover:bg-[#5E6B52]">
                       <Icon
                         size={18}
                         strokeWidth={1.75}
-                        className="text-[#2F6B4F] group-hover:text-white transition-colors duration-300"
+                        className="text-[#5E6B52] group-hover:text-white transition-colors duration-300"
                       />
                     </div>
 
                     <div>
-                      <p className="text-[11px] font-semibold uppercase tracking-widest text-[#5B6168] mb-0.5">
+                      <p className="text-[11px] font-semibold uppercase tracking-widest text-[#5B6152] mb-0.5">
                         {title}
                       </p>
-                      <p className="font-medium text-[#14171C] text-sm group-hover:text-[#2F6B4F] transition-colors duration-300">
+                      <p className="font-medium text-[#1F2A1F] text-sm group-hover:text-[#5E6B52] transition-colors duration-300">
                         {value}
                       </p>
                     </div>
@@ -233,14 +233,14 @@ export default function Contact() {
                   <a
                     key={title}
                     href={href}
-                    className="bg-white rounded-[24px] border border-[#E4E6E0]/50 p-5 flex items-center gap-4 shadow-[0_15px_40px_rgba(0,0,0,0.02)] hover:border-[#2F6B4F]/40 hover:shadow-[0_20px_50px_rgba(0,0,0,0.04)] transition-all duration-300 group"
+                    className="bg-white rounded-[24px] border border-[#E4DACB]/60 p-5 flex items-center gap-4 shadow-[0_15px_40px_rgba(31,42,31,0.03)] hover:border-[#5E6B52]/40 hover:shadow-[0_20px_50px_rgba(31,42,31,0.06)] transition-all duration-300 group"
                   >
                     {content}
                   </a>
                 ) : (
                   <div
                     key={title}
-                    className="bg-white rounded-[24px] border border-[#E4E6E0]/50 p-5 flex items-center gap-4 shadow-[0_15px_40px_rgba(0,0,0,0.02)] group"
+                    className="bg-white rounded-[24px] border border-[#E4DACB]/60 p-5 flex items-center gap-4 shadow-[0_15px_40px_rgba(31,42,31,0.03)] group"
                   >
                     {content}
                   </div>

@@ -30,15 +30,18 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
-  const isDark = isOpen || !isScrolled;
+  // Le hero est maintenant en fond clair (pierre/ivoire), donc le texte
+  // de la navbar reste sombre en permanence, sauf quand le menu mobile
+  // est ouvert (celui-ci garde son propre fond sombre pour le contraste).
+  const isDark = isOpen;
 
   return (
     <header
       className={`fixed top-0 left-0 z-50 w-full transition-colors duration-300 ${
         isOpen
-          ? "bg-[#0B1410]"
+          ? "bg-[#1F2A1F]"
           : isScrolled
-            ? "bg-[#FAFBF9]/90 backdrop-blur-md border-b border-[#E4E6E0]/60 shadow-sm"
+            ? "bg-[#FAFBF9]/90 backdrop-blur-md border-b border-[#E4DACB]/60 shadow-sm"
             : "bg-transparent border-b border-transparent "
       }`}
     >
@@ -46,7 +49,7 @@ export default function Navbar() {
         <a
           href="#"
           className={`text-xl md:text-2xl font-normal transition-colors duration-300 ${
-            isDark ? "text-[#F4F5F1]" : "text-[#14171C]"
+            isDark ? "text-[#F6F1E7]" : "text-[#1F2A1F]"
           }`}
           style={{ fontFamily: "'Fraunces', serif" }}
         >
@@ -55,18 +58,14 @@ export default function Navbar() {
 
         <nav
           className={`hidden lg:flex items-center gap-6 text-[13px] tracking-wider font-medium transition-colors duration-300 ${
-            isScrolled ? "text-[#5B6168]" : "text-[#C9CFC9]"
+            isScrolled ? "text-[#5B6152]" : "text-[#1F2A1F]/70"
           }`}
         >
           {navigation.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className={`transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] hover:after:w-full after:transition-all ${
-                isScrolled
-                  ? "hover:text-[#2F6B4F] after:bg-[#2F6B4F]"
-                  : "hover:text-[#9FCBAE] after:bg-[#9FCBAE]"
-              }`}
+              className="transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] hover:after:w-full after:transition-all hover:text-[#5E6B52] after:bg-[#5E6B52]"
             >
               {item.label}
             </a>
@@ -75,8 +74,8 @@ export default function Navbar() {
             href="#contact"
             className={`hidden md:inline-flex items-center justify-center rounded-full px-6 py-3 text-xs font-semibold uppercase tracking-wider transition-all duration-300 shadow-sm ${
               isScrolled
-                ? "bg-[#14171C] text-white hover:bg-[#2F6B4F]"
-                : "bg-[#F4F5F1] text-[#0B1410] hover:bg-[#9FCBAE]"
+                ? "bg-[#1F2A1F] text-[#F6F1E7] hover:bg-[#C97A3D]"
+                : "bg-[#C97A3D] text-white hover:bg-[#B3672E]"
             }`}
           >
             Me contacter
@@ -87,8 +86,8 @@ export default function Navbar() {
           onClick={() => setIsOpen(!isOpen)}
           className={`lg:hidden p-2 transition-colors focus:outline-none relative z-10 ${
             isDark
-              ? "text-[#F4F5F1] hover:text-[#9FCBAE]"
-              : "text-[#14171C] hover:text-[#2F6B4F]"
+              ? "text-[#F6F1E7] hover:text-[#C97A3D]"
+              : "text-[#1F2A1F] hover:text-[#5E6B52]"
           }`}
           aria-label="Toggle Menu"
         >
@@ -97,19 +96,19 @@ export default function Navbar() {
       </div>
 
       <div
-        className={`fixed inset-0 -z-10 bg-[#0B1410] transition-opacity duration-300 ease-in-out lg:hidden ${
+        className={`fixed inset-0 -z-10 bg-[#1F2A1F] transition-opacity duration-300 ease-in-out lg:hidden ${
           isOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         }`}
       >
-        <nav className="h-full w-full flex flex-col items-center justify-center gap-8 text-[15px] uppercase tracking-wider font-medium text-[#C9CFC9] px-6">
+        <nav className="h-full w-full flex flex-col items-center justify-center gap-8 text-[15px] uppercase tracking-wider font-medium text-[#E8DDC8] px-6">
           {navigation.map((item) => (
             <a
               key={item.label}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className="hover:text-[#9FCBAE] transition-colors py-1 w-full text-center"
+              className="hover:text-[#C97A3D] transition-colors py-1 w-full text-center"
             >
               {item.label}
             </a>
@@ -117,7 +116,7 @@ export default function Navbar() {
           <a
             href="#contact"
             onClick={() => setIsOpen(false)}
-            className="mt-2 inline-flex items-center justify-center rounded-full px-8 py-3.5 text-xs font-semibold uppercase tracking-wider transition-all duration-300 shadow-sm w-[80%] max-w-xs bg-[#F4F5F1] text-[#0B1410] hover:bg-[#9FCBAE]"
+            className="mt-2 inline-flex items-center justify-center rounded-full px-8 py-3.5 text-xs font-semibold uppercase tracking-wider transition-all duration-300 shadow-sm w-[80%] max-w-xs bg-[#C97A3D] text-white hover:bg-[#B3672E]"
           >
             Me contacter
           </a>
