@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://bastienandredev.fr"),
 
   title: {
-    default: "Bastien Andre | Développeur Web Freelance Next.js",
+    default: "Bastien Andre | Développeur Web Freelance Next.js à Uzès",
     template: "%s | Bastien Andre",
   },
 
