@@ -55,10 +55,10 @@ export default function About() {
             </p>
 
             <p>
-              Aujourd&apos;hui, j&apos;allie mon expertise technique aux outils
-              de développement modernes et à l&apos;intelligence artificielle
-              pour concevoir des solutions performantes, optimisées et
-              parfaitement adaptées à vos besoins.
+              Aujourd&apos;hui, je reste en veille constante sur les évolutions
+              de l&apos;écosystème React et Next.js pour proposer à mes clients
+              des solutions modernes, performantes et taillées pour durer dans
+              le temps.
             </p>
           </div>
 

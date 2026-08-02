@@ -6,7 +6,7 @@ const timelineEvents = [
     title: "Développeur Web Freelance Next.js / React",
     subtitle: "Bastien Andre Dev — Uzès / À distance",
     description:
-      "Accompagnement des entreprises et créatifs dans la conception d'applications web modernes, fluides et performantes. Spécialisé dans l'écosystème React et l'architecture App Router de Next.js.",
+      "Après plusieurs années en solo, j'ai choisi de mettre mon expertise au service de projets clients. Accompagnement des entreprises et créatifs dans la conception d'applications web modernes et performantes.",
     category: "experience",
   },
   {
@@ -14,7 +14,7 @@ const timelineEvents = [
     title: "Édition de Produits Tech & Création de Starter Kits",
     subtitle: "Projet Indépendant (Solopreneur)",
     description:
-      "Conception, développement et commercialisation de boîtiers de démarrage (starter kits), composants réutilisables et templates premium Next.js à destination des développeurs et entrepreneurs.",
+      "Développement en autonomie, sans collaboration client, pour affiner mon expertise technique avant de me lancer en freelance. Conception et commercialisation de starter kits et templates premium Next.js.",
     category: "experience",
   },
   {

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const projects = [
   {
-    type: "Projet personnel",
+    type: "Concept",
     title: "Braise",
     description:
       "Site vitrine haut de gamme pour un restaurant gastronomique : design éditorial asymétrique, menu dynamique, formulaire de réservation responsive et carte interactive personnalisée.",
@@ -11,7 +11,7 @@ const projects = [
     link: "https://braise-restaurant.netlify.app/",
   },
   {
-    type: "Projet personnel",
+    type: "Concept",
     title: "Altis",
     description:
       "Site vitrine moderne pour un artisan électricien local : accueil optimisé pour la conversion, domaines d'intervention, chantiers réalisés, réassurance client et formulaire de contact. Design responsive, animations fluides au scroll et architecture App Router complète.",
@@ -20,7 +20,7 @@ const projects = [
     link: "https://altis-electricite.vercel.app/",
   },
   {
-    type: "Projet personnel",
+    type: "Concept",
     title: "Prism",
     description:
       "Plateforme e-commerce de bout en bout : catalogue avec gestion des variantes et des stocks, panier persistant en temps réel, paiement sécurisé Stripe et tableau de bord administrateur avec analytics.",
@@ -36,7 +36,7 @@ const projects = [
     link: "https://prism-fullstack-ecommerce-app.vercel.app/",
   },
   {
-    type: "Projet personnel",
+    type: "Concept",
     title: "Evines",
     description:
       "Application SaaS Full-Stack complète : authentification sécurisée multi-provider, tunnel de paiement Stripe avec gestion des abonnements, base PostgreSQL et e-mails transactionnels automatisés.",
