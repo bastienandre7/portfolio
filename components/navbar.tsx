@@ -4,12 +4,11 @@ import { useEffect, useState } from "react";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 
 const navigation = [
-  { label: "Services", href: "#services" },
-  { label: "À propos", href: "#about" },
-  { label: "Parcours", href: "#parcours" },
   { label: "Projets", href: "#projets" },
-  { label: "Process", href: "#process" },
-  { label: "Technologies", href: "#technologies" },
+  { label: "Parcours", href: "#parcours" },
+
+  { label: "Expertise", href: "#expertise" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
@@ -30,9 +29,6 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
-  // Le hero est maintenant en fond clair (pierre/ivoire), donc le texte
-  // de la navbar reste sombre en permanence, sauf quand le menu mobile
-  // est ouvert (celui-ci garde son propre fond sombre pour le contraste).
   const isDark = isOpen;
 
   return (
@@ -57,8 +53,8 @@ export default function Navbar() {
         </a>
 
         <nav
-          className={`hidden lg:flex items-center gap-6 text-[13px] tracking-wider font-medium transition-colors duration-300 ${
-            isScrolled ? "text-[#5B6152]" : "text-[#1F2A1F]/70"
+          className={`hidden lg:flex items-center gap-6 text-md tracking-wider font-medium transition-colors duration-300 ${
+            isScrolled ? "text-black" : "text-[#1F2A1F]/70"
           }`}
         >
           {navigation.map((item) => (
@@ -70,16 +66,6 @@ export default function Navbar() {
               {item.label}
             </a>
           ))}
-          <a
-            href="#contact"
-            className={`hidden md:inline-flex items-center justify-center rounded-full px-6 py-3 text-xs font-semibold uppercase tracking-wider transition-all duration-300 shadow-sm ${
-              isScrolled
-                ? "bg-[#1F2A1F] text-[#F6F1E7] hover:bg-[#C97A3D]"
-                : "bg-[#C97A3D] text-white hover:bg-[#B3672E]"
-            }`}
-          >
-            Me contacter
-          </a>
         </nav>
 
         <button

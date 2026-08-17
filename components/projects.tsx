@@ -1,197 +1,199 @@
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 
 const projects = [
   {
-    type: "Concept",
+    type: "Site vitrine · Concept",
     title: "Braise",
     description:
-      "Site vitrine haut de gamme pour un restaurant gastronomique : design éditorial asymétrique, menu dynamique, formulaire de réservation responsive et carte interactive personnalisée.",
-    tags: ["Next.js", "TypeScript", "TailwindCSS"],
+      "Une identité élégante et éditoriale pour un restaurant gastronomique, pensée pour mettre en valeur sa cuisine et faciliter la réservation.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
     image: "/projects/braise-1.png",
     link: "https://braise-restaurant.netlify.app/",
   },
   {
-    type: "Concept",
+    type: "Site vitrine · Concept",
     title: "Altis",
     description:
-      "Site vitrine moderne pour un artisan électricien local : accueil optimisé pour la conversion, domaines d'intervention, chantiers réalisés, réassurance client et formulaire de contact. Design responsive, animations fluides au scroll et architecture App Router complète.",
-    tags: ["Next.js", "TypeScript", "TailwindCSS"],
+      "Un site clair et rassurant pour un artisan électricien local, conçu pour présenter ses services et transformer les visites en demandes de contact.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
     image: "/projects/altis-1.png",
     link: "https://altis-electricite.vercel.app/",
   },
   {
-    type: "Concept",
+    type: "Application web · Concept",
     title: "Prism",
     description:
-      "Plateforme e-commerce de bout en bout : catalogue avec gestion des variantes et des stocks, panier persistant en temps réel, paiement sécurisé Stripe et tableau de bord administrateur avec analytics.",
-    tags: [
-      "Next.js 16",
-      "PostgreSQL",
-      "Stripe",
-      "Zustand",
-      "NextAuth.js",
-      "TailwindCSS v4",
-    ],
+      "Une plateforme e-commerce complète avec catalogue, gestion des stocks, paiement Stripe et espace d'administration.",
+    tags: ["Next.js", "PostgreSQL", "Stripe"],
     image: "/projects/prism.png",
     link: "https://prism-fullstack-ecommerce-app.vercel.app/",
-  },
-  {
-    type: "Concept",
-    title: "Evines",
-    description:
-      "Application SaaS Full-Stack complète : authentification sécurisée multi-provider, tunnel de paiement Stripe avec gestion des abonnements, base PostgreSQL et e-mails transactionnels automatisés.",
-    tags: ["Next.js", "React", "Stripe", "Prisma", "PostgreSQL", "Auth.js"],
-    image: "/projects/evines-1.png",
-    link: "https://evines-saas-platform-full-solution.vercel.app/",
   },
 ];
 
 export default function Projects() {
-  const isProjectCountEven = projects.length % 2 === 0;
-
   return (
     <section
-      id="projets"
-      className="bg-[#F6F1E7] text-[#1F2A1F] relative overflow-hidden py-24 md:py-32"
+      id="projects"
+      aria-labelledby="projects-heading"
+      className="py-24 md:py-28 bg-[#FAF7F0]"
     >
-      <div className="relative z-10 mx-auto max-w-6xl px-6">
-        <div className="text-center space-y-4 mb-16 md:mb-24 max-w-xl mx-auto">
-          <p className="text-xs font-semibold uppercase tracking-wider text-[#5E6B52]">
-            Projets
-          </p>
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Header */}
+        <div className="max-w-2xl mb-14 md:mb-16">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#5E6B52]">
+            Réalisations
+          </span>
+
           <h2
-            className="text-4xl md:text-5xl leading-tight tracking-tight text-[#1F2A1F]"
-            style={{ fontFamily: "'Fraunces', serif", fontWeight: 500 }}
+            id="projects-heading"
+            className="mt-4 text-4xl md:text-5xl leading-[1.08] tracking-tight text-[#1F2A1F]"
+            style={{
+              fontFamily: "'Fraunces', serif",
+              fontWeight: 500,
+            }}
           >
-            Quelques réalisations{" "}
-            <span className="italic text-[#C97A3D] font-normal">récentes.</span>
+            Des projets conçus pour{" "}
+            <span className="italic text-[#C97A3D]">
+              être vus, compris et utilisés.
+            </span>
           </h2>
+
+          <p className="mt-5 text-sm md:text-base text-[#5B6152] leading-relaxed font-light max-w-xl">
+            Quelques projets qui illustrent ma façon de concevoir des interfaces
+            modernes, performantes et adaptées à chaque activité.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-10 items-stretch">
-          {projects.map(({ type, title, description, tags, image, link }) => (
-            <article
-              key={title}
-              className="bg-white rounded-[24px] border border-[#E4DACB]/60 shadow-[0_15px_40px_rgba(31,42,31,0.03)] hover:shadow-[0_25px_50px_rgba(31,42,31,0.06)] overflow-hidden flex flex-col transition-all duration-500 transform hover:-translate-y-1 group h-full"
-            >
-              {/* Image cliquable */}
-              <div className="aspect-[16/10] bg-[#EDE4D4] relative overflow-hidden">
-                {link ? (
-                  <a
-                    href={link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full h-full"
-                  >
-                    <Image
-                      src={image}
-                      alt={title}
-                      fill
-                      className="object-cover filter grayscale-[5%] group-hover:scale-[103%] group-hover:grayscale-0 transition-all duration-700 ease-out"
-                    />
-                  </a>
-                ) : (
+        {/* Projects */}
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+          {projects.map(
+            ({ type, title, description, tags, image, link }, index) => (
+              <article
+                key={title}
+                className={`group bg-white rounded-[24px] border border-[#E4DACB]/70 overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_25px_60px_rgba(31,42,31,0.07)] ${
+                  index === 0 ? "md:col-span-2" : ""
+                }`}
+              >
+                {/* Image */}
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Voir le projet ${title}`}
+                  className={`block relative overflow-hidden bg-[#EDE4D4] ${
+                    index === 0 ? "aspect-[16/7]" : "aspect-[16/10]"
+                  }`}
+                >
                   <Image
                     src={image}
-                    alt={title}
+                    alt={`Aperçu du projet ${title}`}
                     fill
-                    className="object-cover filter grayscale-[5%] group-hover:scale-[103%] group-hover:grayscale-0 transition-all duration-700 ease-out"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+                    sizes={
+                      index === 0
+                        ? "(max-width: 768px) 100vw, 1200px"
+                        : "(max-width: 768px) 100vw, 600px"
+                    }
                   />
-                )}
-              </div>
 
-              {/* Contenu */}
-              <div className="p-6 md:p-8 flex flex-col flex-1 justify-between border-t border-[#E4DACB]/60">
-                <div className="flex-1">
-                  <span className="text-[11px] font-semibold uppercase tracking-widest text-[#5E6B52] mb-2.5 block">
-                    {type}
-                  </span>
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-[#1F2A1F]/0 group-hover:bg-[#1F2A1F]/5 transition-colors duration-500" />
 
-                  {/* Titre classique et propre */}
-                  <h3 className="text-2xl font-medium text-[#1F2A1F] mb-3 group-hover:text-[#5E6B52] transition-colors">
+                  {/* View button */}
+                  <div className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm border border-white/50 flex items-center justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-sm">
+                    <ArrowUpRight
+                      size={17}
+                      strokeWidth={1.6}
+                      className="text-[#1F2A1F]"
+                    />
+                  </div>
+                </a>
+
+                {/* Content */}
+                <div className="p-6 md:p-8">
+                  <div className="flex items-center justify-between gap-4 mb-3">
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#5E6B52]">
+                      {type}
+                    </span>
+
+                    <span className="text-xs text-[#9A9488]">0{index + 1}</span>
+                  </div>
+
+                  <h3
+                    className="text-2xl md:text-[28px] text-[#1F2A1F] leading-tight"
+                    style={{
+                      fontFamily: "'Fraunces', serif",
+                      fontWeight: 500,
+                    }}
+                  >
                     {title}
                   </h3>
 
-                  <p className="text-sm text-[#5B6152] leading-relaxed mb-6 font-light">
+                  <p className="mt-3 text-sm text-[#5B6152] leading-relaxed font-light max-w-2xl">
                     {description}
                   </p>
-                </div>
 
-                {/* Zone du bas réorganisée pour être ultra-claire */}
-                <div className="pt-5 border-t border-[#E4DACB]/50 mt-auto flex flex-col gap-4">
-                  {/* Les Tags */}
-                  <div className="flex gap-2 flex-wrap">
-                    {tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs font-medium bg-[#EFF1E9] border border-[#5E6B52]/15 text-[#5E6B52] px-3 py-1 rounded-lg"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                  <div className="mt-6 flex flex-wrap items-center justify-between gap-4 pt-5 border-t border-[#E4DACB]/60">
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-1.5">
+                      {tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-[10px] font-medium text-[#5E6B52] bg-[#EFF1E9] border border-[#5E6B52]/10 px-2.5 py-1 rounded-md"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
 
-                  {/* Le Bouton d'action explicite (uniquement si un lien existe) */}
-                  {link && (
+                    {/* Link */}
                     <a
                       href={link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 w-full text-center bg-[#FAF7F0] hover:bg-[#5E6B52] text-[#1F2A1F] hover:text-white border border-[#E4DACB] hover:border-[#5E6B52] py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all duration-300 group/btn mt-1"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#1F2A1F] hover:text-[#C97A3D] transition-colors"
                     >
-                      Voir le site en direct
-                      <span className="text-sm transition-transform duration-300 group-hover/btn:translate-x-1">
-                        →
-                      </span>
+                      Voir le projet
+                      <ArrowUpRight
+                        size={14}
+                        strokeWidth={1.7}
+                        className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                      />
                     </a>
-                  )}
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            ),
+          )}
+        </div>
 
-          <article
-            className={`bg-white/40 rounded-[24px] border-2 border-dashed border-[#D8CDBB] p-8 md:p-12 transition-all duration-300 hover:bg-white hover:border-[#5E6B52]/40 hover:shadow-[0_15px_40px_rgba(31,42,31,0.03)] min-h-[350px] flex
-              ${
-                isProjectCountEven
-                  ? "md:col-span-2 flex-col md:flex-row items-center justify-between text-center md:text-left gap-6 md:min-h-[220px]"
-                  : "flex-col items-center justify-center text-center"
-              }`}
-          >
-            <div
-              className={
-                isProjectCountEven
-                  ? "space-y-2"
-                  : "flex-1 flex flex-col items-center justify-center"
-              }
+        {/* Bottom CTA */}
+        <div className="mt-8 rounded-[24px] border border-dashed border-[#D8CDBB] bg-white/40 px-6 py-8 md:px-10 md:py-9 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div>
+            <h3
+              className="text-xl md:text-2xl text-[#1F2A1F]"
+              style={{
+                fontFamily: "'Fraunces', serif",
+                fontWeight: 500,
+              }}
             >
-              <h3
-                className="text-2xl text-[#1F2A1F] mb-2 font-normal"
-                style={{ fontFamily: "'Fraunces', serif" }}
-              >
-                Votre projet{" "}
-                <br
-                  className={isProjectCountEven ? "hidden md:block" : "block"}
-                />
-                <span className="italic text-[#C97A3D]">pourrait être ici</span>
-              </h3>
-              <p
-                className={`text-sm text-[#5B6152] font-light leading-relaxed ${isProjectCountEven ? "max-w-xl" : "max-w-[260px] mb-8"}`}
-              >
-                Parlons de vos objectifs pour concevoir une interface sur
-                mesure.
-              </p>
-            </div>
+              Votre projet pourrait être le prochain.
+            </h3>
 
-            <div className={isProjectCountEven ? "shrink-0" : ""}>
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center rounded-xl bg-[#1F2A1F] text-white px-7 py-3.5 text-xs font-semibold uppercase tracking-wider hover:bg-[#5E6B52] transition-all duration-300 shadow-sm"
-              >
-                Me contacter
-              </a>
-            </div>
-          </article>
+            <p className="mt-2 text-sm text-[#5B6152] font-light">
+              Parlons de votre activité et de ce que votre site pourrait
+              devenir.
+            </p>
+          </div>
+
+          <a
+            href="#contact"
+            className="shrink-0 inline-flex items-center gap-2 rounded-xl bg-[#1F2A1F] text-white px-6 py-3 text-xs font-semibold uppercase tracking-wider hover:bg-[#5E6B52] transition-colors duration-300"
+          >
+            Parlons de votre projet
+            <ArrowUpRight size={14} strokeWidth={1.8} />
+          </a>
         </div>
       </div>
     </section>

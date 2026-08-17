@@ -1,22 +1,16 @@
 import About from "@/components/about";
 import Contact from "@/components/contact";
+import Expertise from "@/components/expertise";
 import Hero from "@/components/hero";
-import Parcours from "@/components/parcours";
-import Process from "@/components/process";
 import Projects from "@/components/projects";
-import Services from "@/components/services";
-import TechStack from "@/components/techstack";
 
 export default function Home() {
   return (
     <main>
       <Hero />
-      <Services />
-      <About />
-      <Parcours />
       <Projects />
-      <Process />
-      <TechStack />
+      <Expertise />
+      <About />
       <Contact />
     </main>
   );
