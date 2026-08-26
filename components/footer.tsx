@@ -4,21 +4,25 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-[#F4F5F1] relative overflow-hidden">
-      <div className="relative z-10 mx-auto max-w-6xl px-6 py-12 md:py-16">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-10 border-b border-white/10">
-          <div className="space-y-2">
-            <h3
-              className="text-xl md:text-2xl text-[#F4F5F1] font-normal"
-              style={{ fontFamily: "'Fraunces', serif" }}
-            >
-              Bastien Andre
-            </h3>
-            <p className="text-sm text-[#A8AEB4] max-w-md font-light leading-relaxed">
-              Développeur Full Stack spécialisé en Next.js. J&apos;accompagne
-              les entreprises dans la création d&apos;interfaces rapides,
-              modernes et pensées pour durer.
+    <footer className="sticky bottom-0 z-0 bg-black text-[#F4F5F1] relative overflow-hidden">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 sm:px-10 md:py-24 lg:px-12">
+        <div className="border-b border-white/10 pb-12 md:pb-16">
+          <h3 className="whitespace-nowrap text-center text-[clamp(3rem,10vw,13rem)] font-medium leading-[0.78] tracking-[-0.07em] text-[#7B7D7A]">
+            Bastien Andre
+          </h3>
+        </div>
+
+        <div className="flex flex-col items-start justify-between gap-10 pt-8 md:flex-row md:items-center">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#7B7D7A]">
+              Développeur web freelance · Uzès
             </p>
+            <a
+              href="mailto:contact@bastienandredev.fr"
+              className="mt-3 inline-block text-base font-medium text-[#F4F5F1] transition-colors hover:text-[#9FCBAE] sm:text-lg"
+            >
+              contact@bastienandredev.fr
+            </a>
           </div>
 
           <div className="flex items-center gap-3">
@@ -77,7 +81,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-light text-[#6E747A] tracking-wide">
+        <div className="mt-10 flex flex-col items-start justify-between gap-4 text-xs font-light tracking-wide text-[#6E747A] sm:flex-row sm:items-center">
           <p>
             &copy; {new Date().getFullYear()} Bastien Andre. Tous droits
             réservés.

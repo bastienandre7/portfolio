@@ -1,32 +1,24 @@
-import Navigation from "@/components/navigation";
-
 export default function PolitiqueDeConfidentialite() {
   return (
     <>
-      <Navigation />
-      <main className="bg-[#FAFBF9] text-[#14171C] py-24 md:py-32">
-        <div className="mx-auto max-w-3xl w-full px-6">
-          <div className="space-y-4 mb-16">
+      <main className="relative z-10 min-h-screen overflow-hidden rounded-b-[2.5rem] bg-white text-[#1F2A1F]">
+        <div className="mx-auto w-full max-w-4xl px-6 pb-24 pt-32 sm:px-10 md:pb-32 md:pt-40 lg:px-12">
+          <div className="mb-16 max-w-2xl space-y-5 md:mb-20">
             <p className="text-xs font-semibold uppercase tracking-wider text-[#2F6B4F]">
               Confidentialité
             </p>
-            <h1
-              className="text-4xl md:text-5xl leading-[1.08] tracking-tight text-[#14171C]"
-              style={{ fontFamily: "'Fraunces', serif", fontWeight: 500 }}
-            >
+            <h1 className="text-4xl font-medium leading-[1.08] tracking-[-0.04em] text-[#1F2A1F] sm:text-5xl md:text-6xl">
               Politique de{" "}
-              <span className="italic text-[#2F6B4F] font-normal">
-                Confidentialité.
-              </span>
+              <span className="text-[#C97A3D]">Confidentialité.</span>
             </h1>
-            <p className="text-xs text-[#5B6168]/70 font-light pt-2">
+            <p className="pt-2 text-xs text-[#1F2A1F]/50">
               Dernière mise à jour : Juin 2026
             </p>
           </div>
 
-          <div className="space-y-10 text-sm text-[#5B6168] font-light leading-relaxed">
+          <div className="max-w-3xl space-y-12 text-sm leading-7 text-[#1F2A1F]/65 sm:text-base">
             <section className="space-y-3">
-              <h2 className="text-xs font-semibold uppercase tracking-wide text-[#14171C]">
+              <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-[#1F2A1F]">
                 1. Introduction
               </h2>
               <p>

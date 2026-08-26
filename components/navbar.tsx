@@ -1,13 +1,14 @@
 "use client";
 
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 
 const navigation = [
-  { label: "Projets", href: "#projets" },
-  { label: "Parcours", href: "#parcours" },
-
-  { label: "Expertise", href: "#expertise" },
+  { label: "À propos", href: "#about" },
+  { label: "Mes Outils", href: "#tech-stack" },
+  { label: "Mes Projets", href: "#projets" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -37,33 +38,39 @@ export default function Navbar() {
         isOpen
           ? "bg-[#1F2A1F]"
           : isScrolled
-            ? "bg-[#FAFBF9]/90 backdrop-blur-md border-b border-[#E4DACB]/60 shadow-sm"
-            : "bg-transparent border-b border-transparent "
+            ? "bg-white/90 backdrop-blur-md"
+            : "bg-transparent"
       }`}
     >
       <div className="mx-auto max-w-6xl h-20 md:h-24 px-6 flex items-center justify-between">
-        <a
-          href="#"
-          className={`text-xl md:text-2xl font-normal transition-colors duration-300 ${
+        <Link
+          href="/"
+          className={`text-xl md:text-2xl font-medium transition-colors duration-300 ${
             isDark ? "text-[#F6F1E7]" : "text-[#1F2A1F]"
           }`}
-          style={{ fontFamily: "'Fraunces', serif" }}
         >
           Bastien Andre
-        </a>
+        </Link>
 
-        <nav
-          className={`hidden lg:flex items-center gap-6 text-md tracking-wider font-medium transition-colors duration-300 ${
-            isScrolled ? "text-black" : "text-[#1F2A1F]/70"
-          }`}
-        >
+        <nav className="hidden lg:flex items-center gap-6 text-md tracking-wider font-medium text-black">
           {navigation.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className="transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] hover:after:w-full after:transition-all hover:text-[#5E6B52] after:bg-[#5E6B52]"
+              className={`transition-colors ${
+                item.label === "Contact"
+                  ? "rounded-full bg-black px-5 py-2.5 text-white hover:bg-[#1F2A1F]"
+                  : "relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] hover:after:w-full after:transition-all hover:text-[#5E6B52] after:bg-[#5E6B52]"
+              }`}
             >
-              {item.label}
+              {item.label === "Contact" ? (
+                <span className="inline-flex items-center gap-2">
+                  {item.label}
+                  <ArrowRight size={15} strokeWidth={2} aria-hidden="true" />
+                </span>
+              ) : (
+                item.label
+              )}
             </a>
           ))}
         </nav>
@@ -82,7 +89,7 @@ export default function Navbar() {
       </div>
 
       <div
-        className={`fixed inset-0 -z-10 bg-[#1F2A1F] transition-opacity duration-300 ease-in-out lg:hidden ${
+        className={`fixed inset-0 -z-10 bg-black transition-opacity duration-300 ease-in-out lg:hidden ${
           isOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"

@@ -1,64 +1,86 @@
 "use client";
 
-import ColorBends from "@/components/ColorBends";
-import { BsFillLightningChargeFill } from "react-icons/bs";
-import { FaMapPin, FaPen } from "react-icons/fa";
+import { motion } from "motion/react";
+import Image from "next/image";
+import { useSyncExternalStore } from "react";
+
+const subscribeToPreloader = (onStoreChange: () => void) => {
+  window.addEventListener("preloader-reveal", onStoreChange);
+  return () => window.removeEventListener("preloader-reveal", onStoreChange);
+};
+
+const getPreloaderState = () =>
+  document.body.dataset.preloaderComplete === "true";
+
+const getServerPreloaderState = () => false;
 
 export default function Hero() {
+  const isRevealed = useSyncExternalStore(
+    subscribeToPreloader,
+    getPreloaderState,
+    getServerPreloaderState,
+  );
+
   return (
-    <section className="relative flex min-h-screen flex-col overflow-hidden bg-[#F6F1E7] text-[#1F2A1F]">
-      <div className="pointer-events-none absolute inset-0 z-0 opacity-80">
-        <ColorBends
-          colors={["#EDE4D4", "#D8D0BE", "#C7D3C0"]}
-          rotation={90}
-          autoRotate={0}
-          speed={0.2}
-          scale={1}
-          frequency={1}
-          warpStrength={1}
-          mouseInfluence={1}
-          parallax={0.5}
-          noise={0.15}
-          iterations={1}
-          intensity={1.5}
-          bandWidth={6}
-          transparent={true}
-        />
-      </div>
-
-      <div className="relative z-10 flex min-h-screen items-center justify-center px-6 py-24 sm:px-8 lg:px-12">
-        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-          <div className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-[#5E6B52]/30 bg-[#5E6B52]/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.25em] text-[#5E6B52] backdrop-blur-md">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#5E6B52] opacity-75"></span>
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#5E6B52]"></span>
-            </span>
-            Disponible actuellement
-          </div>
-
-          <h1
-            className="mb-4 text-[2.8rem] leading-[0.9] tracking-tight text-[#1F2A1F] sm:text-[4.2rem] md:text-[5.2rem]"
-            style={{ fontFamily: "'Fraunces', serif", fontWeight: 500 }}
+    <section className="relative min-h-screen overflow-hidden bg-white">
+      <div className="mx-auto grid min-h-screen max-w-7xl items-center gap-12 px-6 pb-16 pt-28 sm:px-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20 lg:px-12 lg:pb-12 lg:pt-32">
+        <motion.div
+          initial="hidden"
+          animate={isRevealed ? "visible" : "hidden"}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: { staggerChildren: 0.12, delayChildren: 0.2 },
+            },
+          }}
+          className="max-w-xl"
+        >
+          <motion.p
+            variants={{
+              hidden: { opacity: 0, y: 18 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            transition={{ duration: 0.65, ease: "easeOut" }}
+            className="mb-6 text-xs font-semibold uppercase tracking-[0.24em] text-[#5E6B52]"
           >
-            Des sites inspirés
-            <br />
-            <span className="font-normal italic text-[#C97A3D]">
-              de l’élégance
-            </span>
-            <br />
-            d’Uzès et du Gard.
-          </h1>
+            Développeur web freelance · Uzès
+          </motion.p>
 
-          <p className="mx-auto mb-7 max-w-2xl text-base font-light leading-relaxed text-[#1F2A1F]/70 sm:text-lg md:text-xl">
-            Je crée des sites haut de gamme pour les maisons d’hôtes, domaines
-            viticoles et entreprises locales d’Uzès et du Gard — élégants,
-            rapides et pensés pour convertir les visiteurs en clients.
-          </p>
+          <motion.h1
+            variants={{
+              hidden: { opacity: 0, y: 22 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            transition={{ duration: 0.75, ease: "easeOut" }}
+            className="mb-7 max-w-lg text-5xl font-medium leading-[1.04] tracking-[-0.04em] text-[#1F2A1F] sm:text-6xl lg:text-[4.7rem]"
+          >
+            Des sites qui donnent envie de{" "}
+            <span className="text-[#C97A3D]">rester.</span>
+          </motion.h1>
 
-          <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+          <motion.p
+            variants={{
+              hidden: { opacity: 0, y: 18 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            transition={{ duration: 0.65, ease: "easeOut" }}
+            className="mb-9 max-w-lg text-base leading-7 text-[#1F2A1F]/65 sm:text-lg"
+          >
+            Développeur Next.js & React. Je transforme vos idées et maquettes
+            Figma en applications web ultra-rapides, modernes et performantes.
+          </motion.p>
+
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 18 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            transition={{ duration: 0.65, ease: "easeOut" }}
+            className="flex flex-col gap-4 sm:flex-row sm:items-center"
+          >
             <a
               href="#contact"
-              className="inline-flex items-center justify-center rounded-xl bg-[#C97A3D] px-8 py-4 text-sm font-medium text-white shadow-lg shadow-black/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#B3672E]"
+              className="inline-flex items-center justify-center rounded-full bg-black px-7 py-3.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-[#1F2A1F]"
             >
               Discutons de votre projet
             </a>
@@ -72,21 +94,34 @@ export default function Hero() {
                 →
               </span>
             </a>
-          </div>
+          </motion.div>
+        </motion.div>
 
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 border-t border-[#1F2A1F]/15 pt-4 text-[13px] font-medium uppercase tracking-wide text-[#1F2A1F]/60">
-            <span className="flex items-center gap-2">
-              <BsFillLightningChargeFill className="text-[#C97A3D]" /> Réponse
-              sous 24h
-            </span>
-            <span className="flex items-center gap-2">
-              <FaPen className="text-[#C97A3D]" /> Devis gratuit
-            </span>
-            <span className="flex items-center gap-2">
-              <FaMapPin className="text-[#C97A3D]" /> Basé à Uzès
-            </span>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96, y: 20 }}
+          animate={
+            isRevealed
+              ? { opacity: 1, scale: 1, y: 0 }
+              : { opacity: 0, scale: 0.96, y: 20 }
+          }
+          transition={{ duration: 0.9, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          className="relative mx-auto w-full max-w-md lg:mx-0 lg:justify-self-end"
+        >
+          <div className="relative">
+            <div className="absolute -bottom-4 -right-4 h-full w-full rounded-[2rem] bg-[#C97A3D]/15" />
+            <div className="absolute -left-3 -top-3 h-24 w-24 rounded-tl-[2rem] border-l-2 border-t-2 border-[#C97A3D]" />
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-[#E8DDC8] sm:aspect-[5/6]">
+              <Image
+                src="/images/photo-profil.png"
+                alt="Bastien Andre, développeur web freelance à Uzès"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 55vw"
+                className="object-cover"
+              />
+            </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
