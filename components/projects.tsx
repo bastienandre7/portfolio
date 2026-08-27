@@ -1,4 +1,7 @@
+"use client";
+
 import { ArrowUpRight } from "lucide-react";
+import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
 import { FaGithub, FaNodeJs } from "react-icons/fa";
 import {
@@ -56,6 +59,8 @@ const projects = [
 ];
 
 export default function Projects() {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <section
       id="projets"
@@ -63,7 +68,16 @@ export default function Projects() {
       className="bg-white py-24 text-[#1F2A1F] md:py-32"
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-12">
-        <div className="mb-16 max-w-2xl md:mb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{
+            duration: prefersReducedMotion ? 0 : 0.65,
+            ease: "easeOut",
+          }}
+          className="mb-16 max-w-2xl md:mb-20"
+        >
           <p className="mb-6 text-xs font-semibold uppercase tracking-[0.24em] text-[#5E6B52]">
             Selected projects
           </p>
@@ -79,7 +93,7 @@ export default function Projects() {
             Une sélection de projets où le design, la technique et les objectifs
             du client avancent dans la même direction.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid gap-16 md:gap-24">
           {projects.map(
@@ -87,8 +101,16 @@ export default function Projects() {
               { type, title, description, tags, image, link, github },
               index,
             ) => (
-              <article
+              <motion.article
                 key={title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{
+                  duration: prefersReducedMotion ? 0 : 0.7,
+                  delay: prefersReducedMotion ? 0 : index * 0.1,
+                  ease: "easeOut",
+                }}
                 className="group grid gap-8 border-t border-[#1F2A1F]/10 pt-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-16"
               >
                 <a
@@ -173,12 +195,21 @@ export default function Projects() {
                     </a>
                   </div>
                 </div>
-              </article>
+              </motion.article>
             ),
           )}
         </div>
 
-        <div className="mt-16 flex flex-col items-start justify-between gap-5 border-t border-[#1F2A1F]/10 pt-8 sm:flex-row sm:items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{
+            duration: prefersReducedMotion ? 0 : 0.6,
+            ease: "easeOut",
+          }}
+          className="mt-16 flex flex-col items-start justify-between gap-5 border-t border-[#1F2A1F]/10 pt-8 sm:flex-row sm:items-center"
+        >
           <p className="text-lg font-medium tracking-[-0.02em]">
             Votre projet pourrait être le prochain.
           </p>
@@ -188,7 +219,7 @@ export default function Projects() {
           >
             Parlons-en <ArrowUpRight size={16} strokeWidth={1.8} />
           </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

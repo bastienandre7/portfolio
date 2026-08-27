@@ -30,14 +30,24 @@ export default function Preloader() {
           className="fixed inset-0 z-[100] flex items-center justify-center bg-white"
           aria-hidden="true"
         >
-          <motion.p
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, ease: "easeOut" }}
-            className="text-2xl font-medium tracking-tight text-[#1F2A1F] sm:text-3xl"
-          >
-            Bastien Andre
-          </motion.p>
+          <div className="flex flex-col items-center gap-1.5">
+            <motion.p
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.75, ease: "easeOut" }}
+              className="text-2xl font-medium tracking-tight text-[#1F2A1F] sm:text-3xl"
+            >
+              Bastien Andre
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.18, duration: 0.6, ease: "easeOut" }}
+              className="text-xs font-semibold uppercase tracking-[0.24em] text-[#5E6B52]"
+            >
+              Développeur web
+            </motion.p>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

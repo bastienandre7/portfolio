@@ -1,5 +1,6 @@
 "use client";
 
+import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
 import { useState } from "react";
 import type { IconType } from "react-icons";
@@ -32,6 +33,7 @@ const socialLinks: { name: string; href: string; icon?: IconType }[] = [
 ];
 
 export default function Contact() {
+  const prefersReducedMotion = useReducedMotion();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
   const [status, setStatus] = useState<{
@@ -94,7 +96,16 @@ export default function Contact() {
       <div className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-12">
         <div className="grid gap-16 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
           {/* COLONNE GAUCHE (5 cols) */}
-          <div className="flex flex-col justify-between">
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{
+              duration: prefersReducedMotion ? 0 : 0.7,
+              ease: "easeOut",
+            }}
+            className="flex flex-col justify-between"
+          >
             <div className="space-y-6">
               {/* Badge de disponibilité */}
               <div className="inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-[#5E6B52]">
@@ -106,7 +117,7 @@ export default function Contact() {
               </div>
 
               {/* Titre */}
-              <div>
+              <div className="mt-12 space-y-3">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#5E6B52]">
                   Contact
                 </p>
@@ -186,10 +197,20 @@ export default function Contact() {
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* COLONNE DROITE : FORMULAIRE (7 cols) */}
-          <div className="flex flex-col border-t border-[#1F2A1F]/10 pt-8 lg:border-t-0 lg:pt-0">
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{
+              duration: prefersReducedMotion ? 0 : 0.7,
+              delay: prefersReducedMotion ? 0 : 0.12,
+              ease: "easeOut",
+            }}
+            className="flex flex-col border-t border-[#1F2A1F]/10 pt-8 lg:border-t-0 lg:pt-0"
+          >
             <div className="flex h-full flex-col justify-between">
               <div className="flex h-full flex-col">
                 <h3 className="text-2xl font-medium tracking-[-0.03em] text-[#1F2A1F] md:text-3xl">
@@ -316,7 +337,7 @@ export default function Contact() {
                 </form>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
