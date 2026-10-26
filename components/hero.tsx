@@ -1,61 +1,37 @@
 "use client";
 
+import { ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
-import { useSyncExternalStore } from "react";
-
-const subscribeToPreloader = (onStoreChange: () => void) => {
-  window.addEventListener("preloader-reveal", onStoreChange);
-  return () => window.removeEventListener("preloader-reveal", onStoreChange);
-};
-
-const getPreloaderState = () =>
-  document.body.dataset.preloaderComplete === "true";
-
-const getServerPreloaderState = () => false;
+import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
 
 export default function Hero() {
-  const isRevealed = useSyncExternalStore(
-    subscribeToPreloader,
-    getPreloaderState,
-    getServerPreloaderState,
-  );
-
   return (
-    <section className="relative min-h-screen overflow-hidden bg-white">
-      <div className="mx-auto grid min-h-screen max-w-7xl items-center gap-12 px-6 pb-16 pt-28 sm:px-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20 lg:px-12 lg:pb-12 lg:pt-32">
+    <section className="relative">
+      <div className="mx-auto flex min-h-[60vh] max-w-[100rem] items-center px-5 py-16 sm:px-10 sm:py-20 lg:px-12 lg:py-24">
         <motion.div
           initial="hidden"
-          animate={isRevealed ? "visible" : "hidden"}
+          animate="visible"
           variants={{
             hidden: {},
             visible: {
               transition: { staggerChildren: 0.12, delayChildren: 0.2 },
             },
           }}
-          className="max-w-xl"
+          className="w-full text-left"
         >
-          <motion.p
+          <motion.h1
             variants={{
               hidden: { opacity: 0, y: 18 },
               visible: { opacity: 1, y: 0 },
             }}
             transition={{ duration: 0.65, ease: "easeOut" }}
-            className="mb-6 text-xs font-semibold uppercase tracking-[0.24em] text-[#5E6B52]"
+            className="text-[clamp(2.1rem,5.8vw,5.5rem)] font-semibold leading-[1.08] tracking-tight text-foreground"
           >
-            Développeur web freelance · Uzès
-          </motion.p>
-
-          <motion.h1
-            variants={{
-              hidden: { opacity: 0, y: 22 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            transition={{ duration: 0.75, ease: "easeOut" }}
-            className="mb-7 max-w-lg text-5xl font-medium leading-[1.04] tracking-[-0.04em] text-[#1F2A1F] sm:text-6xl lg:text-[4.7rem]"
-          >
-            Des sites qui donnent envie de{" "}
-            <span className="text-[#C97A3D]">rester.</span>
+            <span className="text-hero-accent">Bonjour !</span> Moi, c’est{" "}
+            <span className="text-hero-accent">Bastien</span>. Je développe des
+            applications web avec Next.js pour rendre internet plus rapide,
+            fluide et agréable à utiliser.
           </motion.h1>
 
           <motion.p
@@ -64,10 +40,10 @@ export default function Hero() {
               visible: { opacity: 1, y: 0 },
             }}
             transition={{ duration: 0.65, ease: "easeOut" }}
-            className="mb-9 max-w-lg text-base leading-7 text-[#1F2A1F]/65 sm:text-lg"
+            className="mt-6 max-w-4xl text-lg leading-7 text-hero-subtitle sm:mt-8 sm:text-xl sm:leading-8 lg:text-2xl lg:leading-9"
           >
-            Développeur Next.js & React. Je transforme vos idées et maquettes
-            Figma en applications web ultra-rapides, modernes et performantes.
+            Basé à Uzès, dans le Gard, j’accompagne des clients partout en
+            France.
           </motion.p>
 
           <motion.div
@@ -76,51 +52,60 @@ export default function Hero() {
               visible: { opacity: 1, y: 0 },
             }}
             transition={{ duration: 0.65, ease: "easeOut" }}
-            className="flex flex-col gap-4 sm:flex-row sm:items-center"
+            className="mt-7 flex flex-col items-stretch gap-5 sm:mt-8 sm:flex-row sm:items-center sm:gap-6"
           >
             <a
               href="#contact"
-              className="inline-flex items-center justify-center rounded-full bg-black px-7 py-3.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-[#1F2A1F]"
+              className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-hero-accent px-6 py-4 text-base font-medium text-white transition-[filter] hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hero-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:w-auto sm:px-7"
             >
-              Discutons de votre projet
+              Me parler de votre projet
+              <ArrowUpRight size={18} aria-hidden="true" />
             </a>
 
-            <a
-              href="#projets"
-              className="group inline-flex items-center justify-center py-3 text-sm font-medium text-[#1F2A1F] transition-colors hover:text-[#5E6B52]"
-            >
-              Voir mes réalisations
-              <span className="ml-2 transition-transform group-hover:translate-x-1">
-                →
-              </span>
-            </a>
+            <nav className="w-full sm:w-auto" aria-label="Réseaux sociaux">
+              <ul className="flex items-center justify-center gap-3 sm:justify-start">
+                <li>
+                  <a
+                    href="https://www.malt.fr/profile/bastienandre-dev"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Malt (nouvel onglet)"
+                    className="flex h-12 w-12 items-center justify-center rounded-full border border-foreground/15 text-hero-subtitle transition-colors hover:border-hero-accent/40 hover:text-hero-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hero-accent"
+                  >
+                    <Image
+                      src="/logo-malt.jpg"
+                      alt=""
+                      width={20}
+                      height={20}
+                      className="grayscale"
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.linkedin.com/in/bastienandre-dev/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn (nouvel onglet)"
+                    className="flex h-12 w-12 items-center justify-center rounded-full border border-foreground/15 text-hero-subtitle transition-colors hover:border-hero-accent/40 hover:text-hero-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hero-accent"
+                  >
+                    <FaLinkedinIn size={19} aria-hidden="true" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/bastienandre7"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub (nouvel onglet)"
+                    className="flex h-12 w-12 items-center justify-center rounded-full border border-foreground/15 text-hero-subtitle transition-colors hover:border-hero-accent/40 hover:text-hero-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hero-accent"
+                  >
+                    <FaGithub size={19} aria-hidden="true" />
+                  </a>
+                </li>
+              </ul>
+            </nav>
           </motion.div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96, y: 20 }}
-          animate={
-            isRevealed
-              ? { opacity: 1, scale: 1, y: 0 }
-              : { opacity: 0, scale: 0.96, y: 20 }
-          }
-          transition={{ duration: 0.9, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mx-auto w-full max-w-md lg:mx-0 lg:justify-self-end"
-        >
-          <div className="relative">
-            <div className="absolute -bottom-4 -right-4 h-full w-full rounded-[2rem] bg-[#C97A3D]/15" />
-            <div className="absolute -left-3 -top-3 h-24 w-24 rounded-tl-[2rem] border-l-2 border-t-2 border-[#C97A3D]" />
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-[#E8DDC8] sm:aspect-[5/6]">
-              <Image
-                src="/images/photo-profil.png"
-                alt="Bastien Andre, développeur web freelance à Uzès"
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 55vw"
-                className="object-cover"
-              />
-            </div>
-          </div>
         </motion.div>
       </div>
     </section>

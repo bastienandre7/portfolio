@@ -64,162 +64,129 @@ export default function Projects() {
   return (
     <section
       id="projets"
-      aria-labelledby="projects-heading"
-      className="bg-white py-24 text-[#1F2A1F] md:py-32"
+      aria-label="Projets sélectionnés"
+      className="mx-auto max-w-[100rem] px-6 pb-12 sm:px-10 sm:pb-16 lg:px-12 lg:pb-20"
     >
-      <div className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-12">
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{
-            duration: prefersReducedMotion ? 0 : 0.65,
-            ease: "easeOut",
-          }}
-          className="mb-16 max-w-2xl md:mb-20"
-        >
-          <p className="mb-6 text-xs font-semibold uppercase tracking-[0.24em] text-[#5E6B52]">
-            Selected projects
-          </p>
-
-          <h2
-            id="projects-heading"
-            className="text-4xl font-medium leading-[1.08] tracking-[-0.04em] text-[#1F2A1F] sm:text-5xl"
-          >
-            Des projets pensés pour être vus, compris et utilisés.
-          </h2>
-
-          <p className="mt-5 max-w-xl text-base leading-7 text-[#1F2A1F]/60 sm:text-lg">
-            Une sélection de projets où le design, la technique et les objectifs
-            du client avancent dans la même direction.
-          </p>
-        </motion.div>
-
-        <div className="grid gap-16 md:gap-24">
-          {projects.map(
-            (
-              { type, title, description, tags, image, link, github },
-              index,
-            ) => (
-              <motion.article
-                key={title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{
-                  duration: prefersReducedMotion ? 0 : 0.7,
-                  delay: prefersReducedMotion ? 0 : index * 0.1,
-                  ease: "easeOut",
-                }}
-                className="group grid gap-8 border-t border-[#1F2A1F]/10 pt-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-16"
-              >
-                <a
-                  href={link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Voir le projet ${title}`}
-                  className="relative block aspect-[16/10] overflow-hidden rounded-[1.5rem] bg-[#EDE4D4]"
+      <div className="grid gap-0">
+        {projects.map(
+          ({ type, title, description, tags, image, link, github }, index) => (
+            <section
+              key={title}
+              id={`projet-${title.toLowerCase()}`}
+              aria-labelledby={`projet-${title.toLowerCase()}-heading`}
+              className="flex flex-col gap-6 py-8 sm:py-10 lg:py-12"
+            >
+              <div className="w-full">
+                <motion.article
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{
+                    duration: prefersReducedMotion ? 0 : 0.7,
+                    delay: prefersReducedMotion ? 0 : index * 0.1,
+                    ease: "easeOut",
+                  }}
+                  className={`group grid w-full gap-8 lg:items-center lg:gap-12 ${
+                    index === 1
+                      ? "lg:grid-cols-[0.85fr_1.15fr]"
+                      : "lg:grid-cols-[1.15fr_0.85fr]"
+                  }`}
                 >
-                  <Image
-                    src={image}
-                    alt={`Aperçu du projet ${title}`}
-                    fill
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
-                    sizes="(max-width: 1024px) 100vw, 65vw"
-                  />
-
-                  <div className="absolute inset-0 bg-[#1F2A1F]/0 transition-colors duration-500 group-hover:bg-[#1F2A1F]/5" />
-
-                  <div className="absolute right-5 top-5 flex h-11 w-11 translate-y-2 items-center justify-center rounded-full border border-white/50 bg-white/90 opacity-0 shadow-sm backdrop-blur-sm transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                    <ArrowUpRight
-                      size={17}
-                      strokeWidth={1.6}
-                      className="text-[#1F2A1F]"
+                  <a
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Voir le projet ${title}`}
+                    className={`relative block aspect-[16/10] overflow-hidden rounded-[1.5rem] bg-white/10 ${
+                      index === 1 ? "lg:order-2" : ""
+                    }`}
+                  >
+                    <Image
+                      src={image}
+                      alt={`Aperçu du projet ${title}`}
+                      fill
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+                      sizes="(max-width: 1024px) 100vw, 65vw"
                     />
-                  </div>
-                </a>
 
-                <div>
-                  <div className="mb-4 flex items-center justify-between gap-4">
-                    <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#5E6B52]">
-                      {type}
-                    </span>
+                    <div className="absolute inset-0 bg-hero-accent/0 transition-colors duration-500 group-hover:bg-hero-accent/10" />
 
-                    <span className="text-sm text-[#1F2A1F]/35">
-                      0{index + 1}
-                    </span>
-                  </div>
-
-                  <h3 className="text-3xl font-medium leading-tight tracking-[-0.03em] text-[#1F2A1F] sm:text-4xl">
-                    {title}
-                  </h3>
-
-                  <p className="mt-5 max-w-xl text-base leading-7 text-[#1F2A1F]/60">
-                    {description}
-                  </p>
-
-                  <div className="mt-7 flex flex-wrap gap-2">
-                    {tags.map(({ label, icon: TagIcon }) => (
-                      <span
-                        key={label}
-                        className="inline-flex items-center gap-2 rounded-full border border-[#1F2A1F]/10 px-3 py-1.5 text-xs font-medium text-[#1F2A1F]/65"
-                      >
-                        <TagIcon className="h-3.5 w-3.5" aria-hidden="true" />
-                        {label}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="mt-8 flex flex-wrap items-center gap-6 border-t border-[#1F2A1F]/10 pt-5">
-                    <a
-                      href={link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-[#1F2A1F] transition-colors hover:text-[#C97A3D]"
-                    >
-                      Voir le projet
+                    <div className="absolute right-5 top-5 flex h-11 w-11 translate-y-2 items-center justify-center rounded-full border border-white/40 bg-white/20 opacity-0 shadow-lg shadow-black/10 backdrop-blur-xl transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                       <ArrowUpRight
-                        size={14}
-                        strokeWidth={1.7}
-                        className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                        size={17}
+                        strokeWidth={1.6}
+                        className="text-white"
                       />
-                    </a>
-                    <a
-                      href={github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-[#1F2A1F]/55 transition-colors hover:text-[#1F2A1F]"
-                    >
-                      <FaGithub className="h-4 w-4" aria-hidden="true" />
-                      GitHub
-                    </a>
-                  </div>
-                </div>
-              </motion.article>
-            ),
-          )}
-        </div>
+                    </div>
+                  </a>
 
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{
-            duration: prefersReducedMotion ? 0 : 0.6,
-            ease: "easeOut",
-          }}
-          className="mt-16 flex flex-col items-start justify-between gap-5 border-t border-[#1F2A1F]/10 pt-8 sm:flex-row sm:items-center"
-        >
-          <p className="text-lg font-medium tracking-[-0.02em]">
-            Votre projet pourrait être le prochain.
-          </p>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 rounded-full bg-black px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#1F2A1F]"
-          >
-            Parlons-en <ArrowUpRight size={16} strokeWidth={1.8} />
-          </a>
-        </motion.div>
+                  <div className={index === 1 ? "lg:order-1" : ""}>
+                    <div className="mb-3 flex items-center justify-between gap-4">
+                      <span className="text-sm font-semibold uppercase tracking-[0.16em] text-hero-accent">
+                        {type}
+                      </span>
+
+                      <span className="text-sm text-hero-subtitle/50">
+                        0{index + 1}
+                      </span>
+                    </div>
+
+                    <div
+                      aria-label="Technologies utilisées"
+                      className="flex flex-wrap gap-x-3 gap-y-1.5 text-xs font-medium uppercase tracking-[0.1em] text-hero-subtitle sm:text-sm"
+                    >
+                      {tags.map(({ label, icon: TagIcon }) => (
+                        <span
+                          key={label}
+                          className="inline-flex items-center gap-1.5"
+                        >
+                          <TagIcon className="h-3 w-3" aria-hidden="true" />
+                          {label}
+                        </span>
+                      ))}
+                    </div>
+
+                    <h3
+                      id={`projet-${title.toLowerCase()}-heading`}
+                      className="mt-3 text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl"
+                    >
+                      {title}
+                    </h3>
+
+                    <p className="mt-4 text-lg leading-8 text-hero-subtitle">
+                      {description}
+                    </p>
+
+                    <div className="mt-6 flex flex-wrap items-center gap-6">
+                      <a
+                        href={link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-base font-semibold text-hero-accent transition-opacity hover:opacity-75"
+                      >
+                        Voir le projet
+                        <ArrowUpRight
+                          size={16}
+                          strokeWidth={1.7}
+                          className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                        />
+                      </a>
+                      <a
+                        href={github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-base font-semibold text-hero-subtitle transition-opacity hover:opacity-70"
+                      >
+                        <FaGithub className="h-5 w-5" aria-hidden="true" />
+                        GitHub
+                      </a>
+                    </div>
+                  </div>
+                </motion.article>
+              </div>
+            </section>
+          ),
+        )}
       </div>
     </section>
   );

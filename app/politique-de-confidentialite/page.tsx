@@ -1,24 +1,26 @@
+import LegalFooter from "@/components/legal-footer";
+
 export default function PolitiqueDeConfidentialite() {
   return (
     <>
-      <main className="relative z-10 min-h-screen overflow-hidden rounded-b-[2.5rem] bg-white text-[#1F2A1F]">
-        <div className="mx-auto w-full max-w-4xl px-6 pb-24 pt-32 sm:px-10 md:pb-32 md:pt-40 lg:px-12">
-          <div className="mb-16 max-w-2xl space-y-5 md:mb-20">
-            <p className="text-xs font-semibold uppercase tracking-wider text-[#2F6B4F]">
+      <main className="relative z-10 min-h-screen overflow-hidden rounded-b-[2.5rem] bg-background text-foreground">
+        <div className="mx-auto w-full max-w-[100rem] px-6 pb-24 pt-20 sm:px-10 sm:pb-32 sm:pt-24 lg:px-12">
+          <div className="mb-14 max-w-4xl space-y-5 md:mb-20">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-hero-accent">
               Confidentialité
             </p>
-            <h1 className="text-4xl font-medium leading-[1.08] tracking-[-0.04em] text-[#1F2A1F] sm:text-5xl md:text-6xl">
+            <h1 className="text-5xl font-semibold leading-tight tracking-tight text-foreground sm:text-6xl lg:text-7xl">
               Politique de{" "}
-              <span className="text-[#C97A3D]">Confidentialité.</span>
+              <span className="text-hero-accent">confidentialité.</span>
             </h1>
-            <p className="pt-2 text-xs text-[#1F2A1F]/50">
+            <p className="pt-2 text-sm text-hero-subtitle/70">
               Dernière mise à jour : Juin 2026
             </p>
           </div>
 
-          <div className="max-w-3xl space-y-12 text-sm leading-7 text-[#1F2A1F]/65 sm:text-base">
-            <section className="space-y-3">
-              <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-[#1F2A1F]">
+          <div className="max-w-4xl space-y-12 text-base leading-8 text-hero-subtitle sm:text-lg">
+            <section className="space-y-4">
+              <h2 className="text-lg font-semibold tracking-tight text-foreground sm:text-xl">
                 1. Introduction
               </h2>
               <p>
@@ -27,15 +29,15 @@ export default function PolitiqueDeConfidentialite() {
                 (&quot;je&quot;, &quot;mon&quot;) collecte, utilise et protège
                 les données personnelles que vous me transmettez lorsque vous
                 utilisez le site{" "}
-                <span className="font-medium text-[#14171C]">
+                <span className="font-semibold text-foreground">
                   bastienandredev.fr
                 </span>
                 .
               </p>
             </section>
 
-            <section className="space-y-3">
-              <h2 className="text-xs font-semibold uppercase tracking-wide text-[#14171C]">
+            <section className="space-y-4">
+              <h2 className="text-lg font-semibold tracking-tight text-foreground sm:text-xl">
                 2. Données collectées
               </h2>
               <p>
@@ -44,21 +46,21 @@ export default function PolitiqueDeConfidentialite() {
                 collectées lorsque vous remplissez volontairement le formulaire
                 de contact sur le site :
               </p>
-              <ul className="list-disc pl-5 space-y-1 border-l border-[#E4E6E0] ml-2">
+              <ul className="ml-2 list-disc space-y-2 border-l-2 border-hero-accent/40 pl-5">
                 <li>
-                  <strong className="font-medium text-[#14171C]">
+                  <strong className="font-semibold text-foreground">
                     Nom complet :
                   </strong>{" "}
                   Pour savoir comment vous adresser mes réponses.
                 </li>
                 <li>
-                  <strong className="font-medium text-[#14171C]">
+                  <strong className="font-semibold text-foreground">
                     Adresse email :
                   </strong>{" "}
                   Pour pouvoir vous recontacter.
                 </li>
                 <li>
-                  <strong className="font-medium text-[#14171C]">
+                  <strong className="font-semibold text-foreground">
                     Sujet et Message :
                   </strong>{" "}
                   Pour comprendre votre besoin et votre projet informatique.
@@ -66,8 +68,8 @@ export default function PolitiqueDeConfidentialite() {
               </ul>
             </section>
 
-            <section className="space-y-3">
-              <h2 className="text-xs font-semibold uppercase tracking-wide text-[#14171C]">
+            <section className="space-y-4">
+              <h2 className="text-lg font-semibold tracking-tight text-foreground sm:text-xl">
                 3. Utilisation et Finalité des données
               </h2>
               <p>
@@ -80,8 +82,8 @@ export default function PolitiqueDeConfidentialite() {
               </p>
             </section>
 
-            <section className="space-y-3">
-              <h2 className="text-xs font-semibold uppercase tracking-wide text-[#14171C]">
+            <section className="space-y-4">
+              <h2 className="text-lg font-semibold tracking-tight text-foreground sm:text-xl">
                 4. Partage et Sous-traitants
               </h2>
               <p>
@@ -91,8 +93,8 @@ export default function PolitiqueDeConfidentialite() {
                 professionnelle, j&apos;utilise le sous-traitant suivant, qui
                 garantit une stricte conformité RGPD :
               </p>
-              <p className="pl-4 border-l border-[#E4E6E0]">
-                <strong className="font-medium text-[#14171C]">
+              <p className="border-l-2 border-hero-accent/40 pl-5">
+                <strong className="font-semibold text-foreground">
                   Resend Inc.
                 </strong>{" "}
                 — Service d&apos;envoi d&apos;e-mails transactionnels sécurisé.
@@ -101,8 +103,8 @@ export default function PolitiqueDeConfidentialite() {
               </p>
             </section>
 
-            <section className="space-y-3">
-              <h2 className="text-xs font-semibold uppercase tracking-wide text-[#14171C]">
+            <section className="space-y-4">
+              <h2 className="text-lg font-semibold tracking-tight text-foreground sm:text-xl">
                 5. Durée de conservation
               </h2>
               <p>
@@ -110,13 +112,14 @@ export default function PolitiqueDeConfidentialite() {
                 votre demande. Si notre échange n&apos;aboutit pas sur une
                 collaboration contractuelle, vos données seront supprimées au
                 maximum{" "}
-                <span className="font-medium text-[#14171C]">3 ans</span> après
+                <span className="font-semibold text-foreground">3 ans</span>{" "}
+                après
                 notre dernier contact.
               </p>
             </section>
 
-            <section className="space-y-3">
-              <h2 className="text-xs font-semibold uppercase tracking-wide text-[#14171C]">
+            <section className="space-y-4">
+              <h2 className="text-lg font-semibold tracking-tight text-foreground sm:text-xl">
                 6. Sécurité des données
               </h2>
               <p>
@@ -127,8 +130,8 @@ export default function PolitiqueDeConfidentialite() {
               </p>
             </section>
 
-            <section className="space-y-3">
-              <h2 className="text-xs font-semibold uppercase tracking-wide text-[#14171C]">
+            <section className="space-y-4">
+              <h2 className="text-lg font-semibold tracking-tight text-foreground sm:text-xl">
                 7. Vos Droits (RGPD)
               </h2>
               <p>
@@ -140,8 +143,8 @@ export default function PolitiqueDeConfidentialite() {
               <p>
                 Pour exercer ces droits, il vous suffit de m&apos;envoyer une
                 demande par e-mail à l&apos;adresse suivante :{" "}
-                <span className="font-medium text-[#14171C]">
-                  contact@bastienandredev.fr
+                <span className="font-semibold text-foreground">
+                  bastienandredev@gmail.com
                 </span>
                 . Je m&apos;engage à vous répondre sous un délai maximum de 30
                 jours.
@@ -150,6 +153,7 @@ export default function PolitiqueDeConfidentialite() {
           </div>
         </div>
       </main>
+      <LegalFooter />
     </>
   );
 }

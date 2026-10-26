@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import Image from "next/image";
 import { useState } from "react";
 import type { IconType } from "react-icons";
 import {
@@ -14,6 +13,7 @@ import {
   FaPaperPlane,
   FaSpinner,
 } from "react-icons/fa6";
+import { SiMalt } from "react-icons/si";
 
 const socialLinks: { name: string; href: string; icon?: IconType }[] = [
   {
@@ -42,7 +42,7 @@ export default function Contact() {
   }>({ type: null, message: "" });
 
   const handleCopyEmail = async () => {
-    await navigator.clipboard.writeText("contact@bastienandredev.fr");
+    await navigator.clipboard.writeText("bastienandredev@gmail.com");
     setIsCopied(true);
     window.setTimeout(() => setIsCopied(false), 2000);
   };
@@ -92,131 +92,103 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="bg-white py-24 text-[#1F2A1F] md:py-32">
-      <div className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-12">
-        <div className="grid gap-16 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
-          {/* COLONNE GAUCHE (5 cols) */}
+    <section
+      id="contact"
+      className="relative z-10 flex min-h-[calc(100dvh-var(--navbar-height,5rem))] items-center bg-[#050505] py-20 text-white sm:py-24 lg:py-32"
+    >
+      <div className="mx-auto w-full max-w-[100rem] px-6 sm:px-10 lg:px-12">
+        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
           <motion.div
-            initial={{ opacity: 0, x: -24 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{
-              duration: prefersReducedMotion ? 0 : 0.7,
+              duration: prefersReducedMotion ? 0 : 0.9,
               ease: "easeOut",
             }}
             className="flex flex-col justify-between"
           >
-            <div className="space-y-6">
-              {/* Badge de disponibilité */}
-              <div className="inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-[#5E6B52]">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#C97A3D] opacity-75"></span>
-                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#C97A3D]"></span>
-                </span>
-                Disponible pour de nouveaux projets
-              </div>
+            <div className="space-y-5">
+              <h2 className="text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+                Parlons de votre prochain{" "}
+                <span className="text-[#8195ff]">projet.</span>
+              </h2>
 
-              {/* Titre */}
-              <div className="mt-12 space-y-3">
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#5E6B52]">
-                  Contact
-                </p>
-                <h2 className="mt-6 max-w-md text-4xl font-medium leading-[1.08] tracking-[-0.04em] text-[#1F2A1F] sm:text-5xl">
-                  Parlons de votre prochain{" "}
-                  <span className="text-[#C97A3D]">projet.</span>
-                </h2>
-              </div>
-
-              <p className="max-w-md text-base leading-7 text-[#1F2A1F]/60 sm:text-lg">
+              <p className="max-w-xl text-base leading-7 text-white/70 sm:text-lg">
                 Une idée, une refonte ou simplement une première question ?
                 Écrivez-moi, le premier échange est sans engagement.
               </p>
             </div>
 
-            {/* Cartes de contact direct */}
-            <div className="mt-12 space-y-3">
-              <a
+            <div className="mt-12 divide-y divide-white/10 border-y border-white/10">
+              <button
+                type="button"
                 onClick={handleCopyEmail}
-                className="group flex items-center gap-4 rounded-2xl border border-[#E4DACB] bg-white p-4 shadow-xs transition-all hover:border-[#5E6B52] hover:shadow-md"
+                className="group flex w-full items-center gap-4 py-4 text-left transition-colors"
               >
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#5E6B52]/20 bg-[#EFF1E9] text-[#3C4733] transition-colors group-hover:bg-[#5E6B52] group-hover:text-white">
-                  <FaEnvelope className="h-4 w-4" />
-                </div>
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-[#5E6B52]">
+                <FaEnvelope className="h-4 w-4 shrink-0 text-[#8195ff]" />
+                <span className="min-w-0">
+                  <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-white/55">
                     Email direct
-                  </p>
-                  <p className="text-sm font-semibold text-[#1F2A1F] transition-colors group-hover:text-[#5E6B52]">
-                    {isCopied ? "Adresse copiée" : "contact@bastienandredev.fr"}
-                  </p>
-                </div>
-              </a>
+                  </span>
+                  <span className="block break-all text-base font-medium text-white transition-colors group-hover:text-[#8195ff] sm:text-lg">
+                    {isCopied ? "Adresse copiée" : "bastienandredev@gmail.com"}
+                  </span>
+                </span>
+              </button>
 
-              <div className="flex items-center gap-4 rounded-2xl border border-[#E4DACB] bg-white p-4 shadow-xs">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#5E6B52]/20 bg-[#EFF1E9] text-[#3C4733]">
-                  <FaLocationDot className="h-4 w-4" />
-                </div>
+              <div className="flex items-center gap-4 py-4">
+                <FaLocationDot className="h-4 w-4 shrink-0 text-[#8195ff]" />
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-[#5E6B52]">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/55">
                     Localisation
                   </p>
-                  <p className="text-sm font-semibold text-[#1F2A1F]">
-                    Uzès & Nîmes, Gard (A distance)
+                  <p className="text-base font-medium text-white sm:text-lg">
+                    Uzès & Nîmes, Gard (à distance)
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Liens Réseaux Sociaux */}
-            <div className="pt-6">
-              <p className="mb-3 text-xs font-bold uppercase tracking-wider text-[#5E6B52]">
-                Réseaux & Code
-              </p>
-              <div className="flex flex-wrap gap-2.5">
+            <div className="pt-8">
+              <div className="flex flex-wrap gap-x-6 gap-y-3">
                 {socialLinks.map(({ name, icon: Icon, href }) => (
                   <a
                     key={name}
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 rounded-xl border border-[#E4DACB] bg-white px-4 py-2 text-xs font-semibold text-[#1F2A1F] transition-all hover:border-[#5E6B52] hover:bg-[#EFF1E9] hover:text-[#5E6B52]"
+                    aria-label={name === "Malt" ? "Malt" : undefined}
+                    className="inline-flex items-center gap-2 text-base font-medium text-white/70 transition-colors hover:text-[#8195ff] sm:text-lg"
                   >
                     {name === "Malt" ? (
-                      <Image
-                        src="/logo-malt.jpg"
-                        alt=""
-                        width={18}
-                        height={18}
-                        className="h-[18px] w-[18px] object-contain grayscale"
-                      />
+                      <SiMalt className="h-16 w-16" />
                     ) : Icon ? (
-                      <Icon className="h-3.5 w-3.5" />
+                      <Icon className="h-4 w-4" />
                     ) : null}
-                    <span>{name}</span>
+                    {name !== "Malt" && <span>{name}</span>}
                   </a>
                 ))}
               </div>
             </div>
           </motion.div>
 
-          {/* COLONNE DROITE : FORMULAIRE (7 cols) */}
           <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{
-              duration: prefersReducedMotion ? 0 : 0.7,
-              delay: prefersReducedMotion ? 0 : 0.12,
+              duration: prefersReducedMotion ? 0 : 0.9,
               ease: "easeOut",
             }}
-            className="flex flex-col border-t border-[#1F2A1F]/10 pt-8 lg:border-t-0 lg:pt-0"
+            className="flex flex-col lg:border-l lg:border-white/10 lg:pl-12"
           >
             <div className="flex h-full flex-col justify-between">
               <div className="flex h-full flex-col">
-                <h3 className="text-2xl font-medium tracking-[-0.03em] text-[#1F2A1F] md:text-3xl">
-                  Envoyer un message
+                <h3 className="text-2xl font-semibold tracking-tight text-white md:text-3xl">
+                  Écrivez-moi
                 </h3>
-                <p className="mt-1 text-sm font-normal text-[#5B6152]">
+                <p className="mt-2 text-sm leading-6 text-white/60">
                   Remplissez ce formulaire et je vous répondrai dans les plus
                   brefs délais.
                 </p>
@@ -229,7 +201,7 @@ export default function Contact() {
                     <div className="space-y-2">
                       <label
                         htmlFor="name"
-                        className="text-xs font-bold uppercase tracking-wider text-[#4A5043]"
+                        className="text-xs font-medium uppercase tracking-[0.12em] text-white/70"
                       >
                         Votre nom
                       </label>
@@ -239,14 +211,14 @@ export default function Contact() {
                         name="name"
                         required
                         placeholder="Alexandre Rossi"
-                        className="w-full border-b border-[#1F2A1F]/15 bg-transparent px-0 py-3 text-sm font-medium text-[#1F2A1F] placeholder-[#8A8F82] transition-colors focus:border-[#5E6B52] focus:outline-none"
+                        className="w-full rounded-none border-0 border-b border-white/20 bg-transparent px-0 py-3 text-sm font-medium text-white placeholder-white/35 transition-colors focus:border-hero-accent focus:outline-none focus:ring-0"
                       />
                     </div>
 
                     <div className="space-y-2">
                       <label
                         htmlFor="email"
-                        className="text-xs font-bold uppercase tracking-wider text-[#4A5043]"
+                        className="text-xs font-medium uppercase tracking-[0.12em] text-white/70"
                       >
                         Votre email
                       </label>
@@ -256,7 +228,7 @@ export default function Contact() {
                         name="email"
                         required
                         placeholder="alex@exemple.com"
-                        className="w-full border-b border-[#1F2A1F]/15 bg-transparent px-0 py-3 text-sm font-medium text-[#1F2A1F] placeholder-[#8A8F82] transition-colors focus:border-[#5E6B52] focus:outline-none"
+                        className="w-full rounded-none border-0 border-b border-white/20 bg-transparent px-0 py-3 text-sm font-medium text-white placeholder-white/35 transition-colors focus:border-hero-accent focus:outline-none focus:ring-0"
                       />
                     </div>
                   </div>
@@ -264,7 +236,7 @@ export default function Contact() {
                   <div className="space-y-2">
                     <label
                       htmlFor="subject"
-                      className="text-xs font-bold uppercase tracking-wider text-[#4A5043]"
+                      className="text-xs font-medium uppercase tracking-[0.12em] text-white/70"
                     >
                       Sujet de votre demande
                     </label>
@@ -274,15 +246,14 @@ export default function Contact() {
                       name="subject"
                       required
                       placeholder="Création de site, refonte, accompagnement..."
-                      className="w-full border-b border-[#1F2A1F]/15 bg-transparent px-0 py-3 text-sm font-medium text-[#1F2A1F] placeholder-[#8A8F82] transition-colors focus:border-[#5E6B52] focus:outline-none"
+                      className="w-full rounded-none border-0 border-b border-white/20 bg-transparent px-0 py-3 text-sm font-medium text-white placeholder-white/35 transition-colors focus:border-hero-accent focus:outline-none focus:ring-0"
                     />
                   </div>
 
-                  {/* Zone de texte flexible qui prend toute la hauteur disponible */}
                   <div className="flex flex-1 flex-col space-y-2">
                     <label
                       htmlFor="message"
-                      className="text-xs font-bold uppercase tracking-wider text-[#4A5043]"
+                      className="text-xs font-medium uppercase tracking-[0.12em] text-white/70"
                     >
                       Détails du projet
                     </label>
@@ -292,21 +263,20 @@ export default function Contact() {
                       required
                       rows={6}
                       placeholder="Parlez-moi de vos objectifs, vos contraintes et vos délais..."
-                      className="min-h-[160px] w-full flex-1 resize-none border-b border-[#1F2A1F]/15 bg-transparent px-0 py-3 text-sm font-medium text-[#1F2A1F] placeholder-[#8A8F82] transition-colors focus:border-[#5E6B52] focus:outline-none"
+                      className="min-h-[160px] w-full flex-1 resize-y rounded-none border-0 border-b border-white/20 bg-transparent px-0 py-3 text-sm font-medium text-white placeholder-white/35 transition-colors focus:border-hero-accent focus:outline-none focus:ring-0"
                     />
                   </div>
 
-                  {/* Messages de retour */}
                   {status.type && (
                     <div
                       className={`flex items-start gap-3 rounded-xl border p-4 text-sm font-medium ${
                         status.type === "success"
-                          ? "border-[#5E6B52] bg-[#EFF1E9] text-[#3C4733]"
-                          : "border-red-300 bg-red-50 text-red-800"
+                          ? "border-hero-accent/50 bg-hero-accent/10 text-white"
+                          : "border-red-200/30 bg-red-950/30 text-red-100 backdrop-blur-md"
                       }`}
                     >
                       {status.type === "success" ? (
-                        <FaCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#5E6B52]" />
+                        <FaCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#8195ff]" />
                       ) : (
                         <FaExclamation className="mt-0.5 h-4 w-4 shrink-0 text-red-600" />
                       )}
@@ -314,12 +284,11 @@ export default function Contact() {
                     </div>
                   )}
 
-                  {/* Bouton d'envoi pleine largeur */}
                   <div className="pt-2">
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="group inline-flex w-full items-center justify-center gap-3 rounded-full bg-black px-8 py-4 text-sm font-medium text-white transition-colors hover:bg-[#1F2A1F] disabled:cursor-not-allowed disabled:opacity-60"
+                      className="group inline-flex w-full items-center justify-center gap-3 rounded-full bg-hero-accent px-8 py-4 text-sm font-semibold text-white transition-[filter] hover:brightness-125 disabled:cursor-not-allowed disabled:opacity-60"
                     >
                       {isSubmitting ? (
                         <>
@@ -338,6 +307,28 @@ export default function Contact() {
               </div>
             </div>
           </motion.div>
+        </div>
+
+        <div className="relative z-10 mt-12 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-6 text-sm font-medium tracking-wide text-white/60 sm:mt-16 sm:flex-row sm:items-center">
+          <p>
+            &copy; {new Date().getFullYear()} Bastien Andre. Tous droits
+            réservés.
+          </p>
+
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
+            <a
+              href="/mentions-legales"
+              className="transition-colors duration-200 hover:text-[#b9d0ff]"
+            >
+              Mentions légales
+            </a>
+            <a
+              href="/politique-de-confidentialite"
+              className="transition-colors duration-200 hover:text-[#b9d0ff]"
+            >
+              Politique de confidentialité
+            </a>
+          </div>
         </div>
       </div>
     </section>
