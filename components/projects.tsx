@@ -80,10 +80,10 @@ export default function Projects() {
                 <motion.article
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
+                  viewport={{ once: true, amount: 0.05 }}
                   transition={{
-                    duration: prefersReducedMotion ? 0 : 0.7,
-                    delay: prefersReducedMotion ? 0 : index * 0.1,
+                    duration: prefersReducedMotion ? 0 : 0.9,
+                    delay: prefersReducedMotion ? 0 : 0.2 + index * 0.1,
                     ease: "easeOut",
                   }}
                   className={`group grid w-full gap-8 lg:items-center lg:gap-12 ${

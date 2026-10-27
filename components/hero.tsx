@@ -2,8 +2,8 @@
 
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
-import Image from "next/image";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
+import { SiMalt } from "react-icons/si";
 
 export default function Hero() {
   return (
@@ -70,15 +70,9 @@ export default function Hero() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Malt (nouvel onglet)"
-                    className="flex h-12 w-12 items-center justify-center rounded-full border border-foreground/15 text-hero-subtitle transition-colors hover:border-hero-accent/40 hover:text-hero-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hero-accent"
+                    className="flex h-12 w-25 items-center justify-center rounded-full border border-foreground/15 text-hero-subtitle transition-colors hover:border-hero-accent/40 hover:text-hero-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hero-accent"
                   >
-                    <Image
-                      src="/logo-malt.jpg"
-                      alt=""
-                      width={20}
-                      height={20}
-                      className="grayscale"
-                    />
+                    <SiMalt size={60} aria-hidden="true" />
                   </a>
                 </li>
                 <li>
